@@ -1,0 +1,31 @@
+.color-none {
+    background-color: #ffffff;
+}
+
+.color-common {
+    background-color: #aa6f41;
+}
+
+.color-uncommon {
+    background-color: #4fd742;
+}
+
+.color-rare {
+    background-color: #1d4bd4;
+}
+
+.color-epic {
+    background-color: #b240f6;
+}
+
+.color-legendary {
+    background-color: #f78b30;
+}
+
+.color-mythic {
+    background-color: #4ad3dc;
+}
+
+.color-titan {
+    background-color: #fcce53;
+}

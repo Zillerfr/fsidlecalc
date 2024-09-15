@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
+
+/* Light mode */
+[data-theme="light"] {
+--body-background: #F3F5F6;
+--body-text-color: #282D2F;
+--zone-background: #D9ECEF;
+--zone-border-color: #99CDD5;
+--input-background: #c2cdd0;
+--input-text-color: #282D2F;
+--input-border: #e9ecf1;
+--input-radio-background: #c2cdd0;
+--input-radio-border: #2B818E;
+--input-radio-color: #28596C;
+--input-checkbox-background: #c2cdd0;
+--input-checkbox-border: #99CDD5;
+--input-checkbox-color: #175A75;
+--slider-background: #c2cdd0;
+--slider-mark: #4DA8B6;
+--button-tab-background: #4DA8B6;
+--button-tab-text: #282D2F;
+--button-tab-background-hover: #7FC0CA;
+--button-tab-text-hover: #282D2F;
+--inactive-tab-background: #e9ecf1;
+--inactive-tab-text: #282D2F;
+--toggle-on-background: #4DA8B6;
+--toggle-off-background: #ccc;
+--health-bar-background: #CED5D7;
+--health-bar-color: #008296;
+--dropdown-background: #4DA8B6;
+--dropdown-color: #282D2F;
+--dropdown-arrow-background: #39838E;
+--dropdown-arrow-color: #282D2F;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+--body-background: #1B1E1F;
+--body-text-color: #DBE0E2;
+--zone-background: #282D2F;
+--zone-border-color: #0E0F10;
+--input-background: #1B1E1F;
+--input-text-color: #DBE0E2;
+--input-border: #0E0F10;
+--input-radio-background: #1B1E1F;
+--input-radio-border: #A9AAAA;
+--input-radio-color: #848484;
+--input-checkbox-background: #1B1E1F;
+--input-checkbox-border: #0E0F10;
+--input-checkbox-color: #A9AAAA;
+--slider-background: #282D2F;
+--slider-mark: #DBE0E2;
+--button-tab-background: #85959B;
+--button-tab-text: #000000;
+--button-tab-background-hover: #9DAAAF;
+--button-tab-text-hover: #000000;
+--inactive-tab-background: #0E0F10;
+--inactive-tab-text: #DBE0E2;
+--toggle-on-background: #C2CACD;
+--toggle-off-background: #0E0F10;
+--health-bar-background: #000000;
+--health-bar-color: #282D2F;
+--dropdown-background: #9DAAAF;
+--dropdown-color: #000000;
+--dropdown-arrow-background: #8C9193;
+--dropdown-arrow-color: #000000;
+}

@@ -1,3 +1,7 @@
+function firstInit() {
+	console.log('first init');
+}
+
 function loadFromStorage() {
 	var retrievedObject = localStorage.getItem(localStorageItemName);
 	if (retrievedObject) {
@@ -33,11 +37,6 @@ function loadFromStorage() {
 				$('#' + this.id + '-text').text(formatCount(dataInput[this.id]));
 			}
 		})
-
-		updateAscensionTime();
-		updateMaxIdleTime();
-		updateAscensionTarget();
-		updateCraftsMaxXp();
 
 	} else {
 		firstInit();

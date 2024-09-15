@@ -28,6 +28,10 @@ body {
 	padding: 5px;
 }
 
+.flex-gear {
+    flex: 1;
+}
+
 .data-item-data-line-title.item-border + .data-item-data-line-craft.item-border, .data-item-data-line-title.item-border + .data-item-data-line-offline.item-border {
 	border-top: none;
 }
@@ -47,6 +51,10 @@ body {
     box-sizing: border-box;
 }
 
+.data-category-stuff {
+    grid-template-columns: auto auto auto;
+}
+
 .data-category-column {
 	display: flex;
 	flex-direction: column;
@@ -63,6 +71,7 @@ body {
 
 .data-category-title {
 	display: block;
+    width: 100%;
 }
 
 .data-category-group {
@@ -164,12 +173,27 @@ body {
 	justify-self: end;
 }
 
+.data-item-data-line-gear-item {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding: 0px 20px;
+	gap: 10px;
+    align-items: center;
+}
+
 .data-item-data-line-values {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	padding: 2px;
 	align-items: center;
+}
+
+.data-item-data-line-item-element {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
 }
 
 .item-centered {
@@ -404,6 +428,372 @@ h1.main-title {
 
 .item-title {
 	grid-column: span 2;
+}
+
+/* input fields */
+
+input, textarea {
+	background: var(--input-background);
+	color: var(--input-text-color);
+}
+
+button, .button {
+	cursor: pointer;
+}
+
+button:hover, .button:hover {
+	background: var(--button-tab-background-hover);
+}
+
+.button {
+    background: var(--button-tab-background);
+    border: none;
+    color: var(--button-tab-text);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 200px;
+}
+  
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--toggle-off-background);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background: var(--body-background);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background: var(--toggle-on-background);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--button-tab-background);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/* Select */
+select {
+    /* Reset Select */
+    appearance: none;
+    outline: 10px red;
+    border: 0;
+    box-shadow: none;
+    /* Personalize */
+    flex: 1;
+    padding: 0 1em;
+    color: var(--dropdown-color);
+    background-color: var(--dropdown-background);
+    background-image: none;
+    cursor: pointer;
+  }
+  /* Remove IE arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  /* Custom Select wrapper */
+  .select_box {
+    position: relative;
+    display: flex;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .select_box.small-select_box {
+    width: 100px;
+    height: 23px;
+  }
+
+  /* Arrow */
+  .select_box::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    color: var(--dropdown-arrow-color);
+    background-color: var(--dropdown-arrow-background);
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+  .select_box.small-select_box::after {
+    padding: 0.2em;
+  }
+
+  /* Transition */
+  .select_box:hover::after {
+    color: var(--dropdown-color);
+  }
+  select:focus {
+      outline:none;
+  }
+
+  .value-control {
+    width: 23px;
+    height: 23px;
+    margin: 0 8px;
+    background: var(--input-background);
+    border: 2px solid var(--input-border);
+    border-radius: 5px;
+    color: var(--input-text-color);
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+  }
+
+  .controlled-input {
+    margin: 0;
+    height: 15px;
+    width: 80px;
+    border: 2px solid var(--input-border);
+    border-radius: 5px;
+    padding: 2px 8px;
+    text-align: center;
+    font-size: 14px;
+    background: var(--input-background);
+    color: var(--input-text-color);
+  }
+  
+  .controlled-input::-webkit-outer-spin-button,
+  .controlled-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .controlled-input {
+    -moz-appearance: textfield;
+  }
+  
+  .input-with-control {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  }
+
+  input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: var(--input-checkbox-background);
+    /* Not removed via appearance */
+    margin: auto;
+  
+    font: inherit;
+    color: var(--input-checkbox-color);
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid var(--input-checkbox-border);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+  
+    display: grid;
+    place-content: center;
+  }
+  
+  input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--input-checkbox-color);
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    transform: scale(1);
+  }
+  
+  .inline-checkbox {
+      border-top: solid 1px var(--zone-border-color);
+      padding-top: 5px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .inline-checkbox input[type="checkbox"] {
+      margin: 0;
+  }
+  
+  input[type="radio"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--input-radio-border);
+      border-radius: 50%;
+      margin-right: 10px;
+      background-color: var(--input-radio-background);
+      position: relative;
+      top: 6px;
+  }
+  
+  input[type="radio"]:checked::before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      background-color: var(--input-radio-color);
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  
+  input[type=range] {
+    height: 21px;
+    -webkit-appearance: none;
+    margin: 0;
+    width: 100%;
+    background: transparent;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: var(--slider-background);
+    border-radius: 15px;
+    border: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    border: none;
+    height: 15px;
+    width: 5px;
+    border-radius: 15px;
+    background: var(--slider-mark);
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -5px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: var(--slider-background);
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: var(--slider-background);
+    border-radius: 15px;
+    border: none;
+  }
+  input[type=range]::-moz-range-thumb {
+    border: 0px solid var(--slider-mark);
+    height: 15px;
+    width: 5px;
+    border-radius: 15px;
+    background: var(--slider-mark);
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: var(--slider-background);
+    border: none;
+    border-radius: 30px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: var(--slider-background);
+    border: none;
+    border-radius: 30px;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    border: 0px solid var(--slider-mark);
+    height: 15px;
+    width: 5px;
+    border-radius: 15px;
+    background: var(--slider-mark);
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: var(--slider-background);
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: var(--slider-background);
+  }
+
+
+  .small-button, .medium-input {
+    max-height: 30px;
+    max-width: 100px;
+    padding: 5px 10px;
+}
+
+.input-holder + .small-button {
+    margin-left: 5px;
 }
 
 /* Rarity colors */

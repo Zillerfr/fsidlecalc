@@ -10,7 +10,11 @@
 	// When ready.
 	$(function() {
 
+		/**
+		 * Initialisation 
+		 */
 		loadFromStorage();
+		initializeCharactersSheet();
 
 		/**
 		 * ==================================
@@ -39,23 +43,16 @@
 
 				switch (tabval) {
 					case "tab_data" :
-						updateNumberFormat();
+						console.log("ouverture onglet informations");						
 						break;
-					case "tab_craft" :
-						updateCraftTab();
-						updateCraftPurchases();
+					case "tab_todo1" :
+						console.log("ouverture onglet à voir 1");
 						break;
-					case "tab_pet" :
-						updatePets();
+					case "tab_todo2" :
+						console.log("ouverture onglet à voir 2");
 						break;
-					case "tab_mordek" :
-						updateBossFight();
-						break;
-					case "tab_drop" :
-						updateDropTab();
-						break;
-					case "tab_rebuild" :
-						updateRebuild();
+					case "tab_todo3" :
+						console.log("ouverture onglet à voir 3");
 						break;
 					default:
 						break;

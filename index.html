@@ -1,5 +1,6 @@
 <!doctype html>
-<html data-theme="dark">
+<html data-theme="light">
+
 <head>
 	<!-- pour éviter les problèmes d'accents-->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -8,7 +9,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="fs-root.css" />
-    <link rel="stylesheet" type="text/css" href="fs.css" />
+	<link rel="stylesheet" type="text/css" href="fs.css" />
 	<link rel="icon" href="favicon.ico" />
 	<title>Firestone Idle RPG - Calculator</title>
 </head>
@@ -23,34 +24,65 @@
 		<div class="tabs_wrap item-border">
 			<ul>
 				<li data-tabs="tab_data" class="active">Vos Informations</li>
-				<li data-tabs="tab_todo1">A faire 1</li>
-				<li data-tabs="tab_todo2">A faire 2</li>
-				<li data-tabs="tab_settings">Réglages</li>
+				<li data-tabs="tab_todo1">A voir 1</li>
+				<li data-tabs="tab_todo2">A voir 2</li>
+				<li data-tabs="tab_todo3">A voir 3</li>
 			</ul>
 		</div>
 		<div class="container">
 			<div class="tab_item_wrap item-border tab_data active">
-				<div class="main-title">Saisir vos informations</div>
+				<div class="main-data">
+					<div class="main-title">Saisir vos informations</div>
+					<div class="ascension-info">
+						<div class="data-item-data-line-item-element">
+							<div>Échelon maximum atteint</div>
+							<div class="input-with-control">
+								<div class="input-holder"><input id="max-reached-stage"
+										class="controlled-input medium-input" type="number"></div>
+								<button class="button small-button" onclick="updateCharacterList()">Appliquer</button>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_data active data">
-				En cours...
+			<div class="tab_item_wrap item-border tab_data active data" id="characters-box">
+				<div class="data-title title-alone item-border">
+					<div class="bold-title">Personnages débloqués</div>
+				</div>
+				<!-- <div class="data-title title-alone item-border title-online-drop title-flex">
+					<div><span class="bold-title">Nom du personnage</span></div> -->
+					<!-- <div class="input-with-control">
+						<div>From level</div>
+						<button class="value-control" onclick="valueUpdate('craft-ring-level',false)">−</button>
+						<div><input id="craft-ring-level" class="input-int-craft controlled-input auto-width" type="number"></div>
+						<button class="value-control" onclick="valueUpdate('craft-ring-level',true)">+</button>
+						<div>to</div>
+						<button class="value-control" onclick="valueUpdate('craft-ring-target',false)">−</button>
+						<div><input id="craft-ring-target" class="input-int-craft controlled-input auto-width" type="number"></div>
+						<button class="value-control" onclick="valueUpdate('craft-ring-target',true)">+</button>
+						<div>XP : <input id="craft-ring-xp" class="input-int craft-xp controlled-input auto-width" type="text"> / <span class="ring-max-xp"></span></div>
+					</div> -->
+				<!-- </div> -->
+
+					</div>
+				</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_todo1">
-				<div class="main-title">A faire 1</div>
+				<div class="main-title">A voir 1</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_todo1">
 				En cours...
 			</div>
 			<div class="tab_item_wrap item-border tab_todo2">
-				<div class="main-title">A faire 2</div>
+				<div class="main-title">A voir 2</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_todo2">
 				En cours...
 			</div>
-			<div class="tab_item_wrap item-border tab_settings">
-				<div class="main-title">Réglages</div>
+			<div class="tab_item_wrap item-border tab_todo3">
+				<div class="main-title">A voir 3</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_settings">
+			<div class="tab_item_wrap item-border tab_todo3">
 				En cours...
 			</div>
 		</div>
@@ -58,5 +90,8 @@
 </body>
 <script src="fs-data.js"></script>
 <script src="fs-common.js"></script>
+<script src="fs-input.js"></script>
+<script src="fs-characters.js"></script>
 <script src="fs.js"></script>
+
 </html>

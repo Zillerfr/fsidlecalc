@@ -17,6 +17,8 @@ var dataInput = {};
  * Game base data
  * ===================================
  */
+const itemTypes = ['gears', 'jewels', 'soulstones'];
+
 const dataInformation = {
 	'specList': [
         {

@@ -1,5 +1,94 @@
+// Gestion thèmes
+function initTheme() {
+	const localStorageTheme = localStorage.getItem("theme");
+	const systemSettingDark = window.matchMedia("(prefers-color-scheme: dark)");
+	var theme = "light";
+	if (localStorageTheme !== null) {
+		theme = localStorageTheme;
+	} else if (systemSettingDark.matches) {
+		theme = "dark";
+	}
+	document.querySelector("html").setAttribute("data-theme", theme);
+	$('.select-theme').val(theme);
+}
+
+function updateTheme() {
+
+	var newTheme = $('.select-theme').val();
+	document.querySelector("html").setAttribute("data-theme", newTheme);
+	localStorage.setItem("theme", newTheme);
+}
+
+// Gestion sauvegarde des données
+var minValues = {};
+
+function generateMinValues() {
+	dataInformation.characters.forEach(function (character, index) {
+		var charName = character.name;
+
+		itemTypes.forEach(function(itemType, index) {
+
+			dataInformation[itemType].forEach(function(item, index) {
+				var rarityId = charName + "-" + itemType + "-" + item.name + "-rarity";
+				var itemId = charName + "-" + itemType + "-" + item.name + "-level";
+				
+				minValues[rarityId] = 0;
+				minValues[itemId] = 0;
+
+
+			});
+
+		});
+
+	 });
+	 minValues["max-reached-stage"] = 0;
+
+}
+
+/* Import */
+function updateValuesFromObject(dataObject) {
+
+	dataInput = {};
+
+	for (var key in minValues) {
+		if (dataObject.hasOwnProperty(key)) {
+			dataInput[key] = dataObject[key];
+		}
+	}
+	localStorage.setItem(localStorageItemName, JSON.stringify(dataInput));
+}
+
+// Initialisation
 function firstInit() {
-	console.log('first init');
+	$("input").each(function() {
+		completeUnknownValue(this.id);
+	})
+	saveAllToStorage();
+}
+
+function completeUnknownValue(id) {
+	saveToStorage(id, minValues[id]);
+}
+
+function saveToStorage(id, value) {
+	if (id != "") {
+		dataInput[id] = value;
+		localStorage.setItem(localStorageItemName, JSON.stringify(dataInput));
+	}
+}
+
+function saveAllToStorage() {
+	$("input").each(function() {
+		switch (this.id) {
+			case "id-for-checkbox-input" :
+				// TODO : à compléter une fois les checkbox en place
+				dataInput[this.id] = $(this).prop("checked");
+				break;
+			default:
+				dataInput[this.id] = this.value.replace(',','.');
+		}
+	})
+	localStorage.setItem(localStorageItemName, JSON.stringify(dataInput));
 }
 
 function loadFromStorage() {
@@ -7,37 +96,34 @@ function loadFromStorage() {
 	if (retrievedObject) {
 		dataInput = JSON.parse(retrievedObject);
 
-
 		$("input").each(function() {
 			if (this.id != "") {
 				if (!dataInput.hasOwnProperty(this.id)) {
 					completeUnknownValue(this.id);
 				}
-				if (this.classList.contains('pet-check') || this.classList.contains('hero-check') || this.classList.contains('numberFormat')) {
+				if (this.classList.contains('class-for-checkbox-input')) {
+					// TODO : à compléter une fois les checkbox en place
 					$(this).prop('checked', dataInput[this.id]);
+				} else if (this.classList.contains('select-input')) {
+					$(this).val(dataInput[this.id]);
 				} else {
 					if (parseFloat(dataInput[this.id]) < parseFloat(minValues[this.id])) {
 						dataInput[this.id] = minValues[this.id];
 					}
-					var numberDigits = 0;
-					if (this.classList.contains('input-real')) {
-						numberDigits = 1;
-					} else if (this.classList.contains('input-real-crit')) {
-						numberDigits = 2;
-					} else if (this.classList.contains('input-real-extended')) {
-						numberDigits = 5;
-					}
-
-					if (this.type == "number") {
-						this.value = dataInput[this.id];
-					} else {
-						this.value = formatBase(dataInput[this.id], numberDigits);
-					}
+					this.value = dataInput[this.id];
 				}
-				$('#' + this.id + '-text').text(formatCount(dataInput[this.id]));
 			}
 		})
-
+		$("select").each(function() {
+			if (this.id != "") {
+				if (!dataInput.hasOwnProperty(this.id)) {
+					completeUnknownValue(this.id);
+				}
+				if (this.classList.contains('select-input')) {
+					$(this).val(dataInput[this.id]);
+				}
+			}
+		})		
 	} else {
 		firstInit();
 	}
@@ -52,65 +138,12 @@ function valueUpdate(idObject, isPositive) {
 	} else {
 		newValue -= 1;
 	}
-
 	var maxValue = 14; // to do, récup max value from type
 	var minValue = 0;  // to do, récup min value from type
 
-	// switch (idObject) {
-	// 	case 'fight-boss-level' :
-	// 		var bossType = $('.select-boss-type').val();
-	// 		if (bossType == "1") {
-	// 			maxValue = dataInformation.caps.loyalistLevel;
-	// 		} else {
-	// 			maxValue = dataInformation.caps.mordekLevel;
-	// 		}			
-	// 		break;
-	// 	case 'bonus-speed' :
-	// 		maxValue = dataInformation.caps.speed;
-	// 		break;
-	// 	case 'sanctum-defense' :
-	// 		maxValue = dataInformation.caps.stoneskin;
-	// 		break;
-	// 	case 'building-gold-rank' :
-	// 	case 'building-wood-rank' :
-	// 	case 'building-stone-rank' :
-	// 	case 'building-metal-rank' :
-	// 	case 'building-gem-rank' :
-	// 		maxValue = dataInformation.caps.rebuildSteps;
-	// 		break;
-	// 	case 'bonus-craft' :
-	// 		maxValue = dataInformation.caps.minimumCraft;
-	// 		break;
-	// 	case 'craft-ring-level' :
-	// 	case 'craft-ring-target' :
-	// 	case 'craft-armor-level' :
-	// 	case 'craft-armor-target' :
-	// 	case 'craft-sword-level' :
-	// 	case 'craft-sword-target' :
-	// 		maxValue = dataInformation.caps.craftlevel;
-	// 		break;
-	// 	case 'bird-level' :
-	// 	case 'dog-level' :
-	// 	case 'snake-level' :
-	// 	case 'fox-level' :
-	// 	case 'pinguin-level' :
-	// 	case 'turtle-level' :
-	// 	case 'cat-level' :
-	// 	case 'mordek-level' :
-	// 		maxValue = dataInformation.caps.petlevel[idObject.replace('-level', '')];
-	// 		break;
-	// 	case 'mira-evolve' :
-	// 	case 'rex-evolve' :
-	// 	case 'leo-evolve' :
-	// 	case 'sylvie-evolve' :
-	// 	case 'anantha-evolve' :
-	// 		maxValue = dataInformation.caps.heroLevel;
-	// 		break;
-	// }
 	if (maxValue > 0 && newValue > maxValue) newValue = maxValue;
 	if (newValue < minValue) newValue = minValue;
 
-	// saveToStorage(idObject, newValue);
+	saveToStorage(idObject, newValue);
 	$("#" + idObject).val(newValue);
-	// processInputChange(idObject, newValue);
 }

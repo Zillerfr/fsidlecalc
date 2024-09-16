@@ -13,8 +13,10 @@
 		/**
 		 * Initialisation 
 		 */
-		loadFromStorage();
+		initTheme();
 		initializeCharactersSheet();
+		generateMinValues()
+		loadFromStorage();
 
 		/**
 		 * ==================================

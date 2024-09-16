@@ -32,7 +32,7 @@ function addItemLine(itemType, characterName, itemName) {
     var divRarityTitle = $('<div></div>').text('Rareté');
     divRarity.append(divRarityTitle);
     var divRaritySelect = $('<div></div>').addClass('select_box small-select_box select_box-rarity');
-    var selectRarity = $('<select id="' + rarityId + '"></select>').addClass('button_select select-theme');
+    var selectRarity = $('<select id="' + rarityId + '"></select>').addClass('button_select select-theme select-input');
     selectRarity.attr("onChange", "rarityChange(this)");
     selectRarityAddOptions(selectRarity);
     divRaritySelect.append(selectRarity);
@@ -94,8 +94,6 @@ function addItemBox(itemType, characterName) {
 }
 
 function initializeCharactersSheet() {
-
-    console.log("(re)initialisation de la liste des personnages");
     $charactersBox = $("#characters-box");
 
     dataInformation.characters

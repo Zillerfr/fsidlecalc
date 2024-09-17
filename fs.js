@@ -47,7 +47,7 @@
 					case "tab_data" :
 						console.log("ouverture onglet informations");						
 						break;
-					case "tab_todo1" :
+					case "tab_showitems" :
 						console.log("ouverture onglet à voir 1");
 						break;
 					case "tab_todo2" :

@@ -33,12 +33,12 @@
 						<option value="legacy">Legacy</option>
 					</select>
 				</div>
-			</div>			
+			</div>
 		</div>
 		<div class="tabs_wrap item-border">
 			<ul>
 				<li data-tabs="tab_data" class="active">Vos Informations</li>
-				<li data-tabs="tab_todo1">A voir 1</li>
+				<li data-tabs="tab_showitems">Visualiser Équipement</li>
 				<li data-tabs="tab_todo2">A voir 2</li>
 				<li data-tabs="tab_todo3">A voir 3</li>
 			</ul>
@@ -61,31 +61,70 @@
 			</div>
 			<div class="tab_item_wrap item-border tab_data active data" id="characters-box">
 				<div class="data-title title-alone item-border">
-					<div class="bold-title">Personnages débloqués</div>
+					<div class="bold-title">Personnage(s)</div>
 				</div>
-				<!-- <div class="data-title title-alone item-border title-online-drop title-flex">
-					<div><span class="bold-title">Nom du personnage</span></div> -->
-					<!-- <div class="input-with-control">
-						<div>From level</div>
-						<button class="value-control" onclick="valueUpdate('craft-ring-level',false)">−</button>
-						<div><input id="craft-ring-level" class="input-int-craft controlled-input auto-width" type="number"></div>
-						<button class="value-control" onclick="valueUpdate('craft-ring-level',true)">+</button>
-						<div>to</div>
-						<button class="value-control" onclick="valueUpdate('craft-ring-target',false)">−</button>
-						<div><input id="craft-ring-target" class="input-int-craft controlled-input auto-width" type="number"></div>
-						<button class="value-control" onclick="valueUpdate('craft-ring-target',true)">+</button>
-						<div>XP : <input id="craft-ring-xp" class="input-int craft-xp controlled-input auto-width" type="text"> / <span class="ring-max-xp"></span></div>
-					</div> -->
-				<!-- </div> -->
-
+			</div>
+			<div class="tab_item_wrap item-border tab_showitems">
+				<div class="main-title">Votre équipement</div>
+			</div>
+			<div class="tab_item_wrap item-border tab_showitems" id="characters-box-view">
+				<div class="data-title title-alone item-border">
+					<div class="bold-title">Personnage(s)</div>
+				</div>
+				<div class="data-title title-alone item-border title-online-drop title-flex">Talia</div>
+				<div class="data-category-title item-border">
+					<div class="data-items data-items-flex data-items-grid">
+						<div class="data-item-data-line flex-gear">
+							<div class="data-item-data-line-title">Équipement</div>
+							<div class="data-item-data-grid data-item-data-grid-gears">
+								<div class="data-item-tier tier1">
+									<div class="data-item-gears-tier1-weapon"><img class="item-svg color-common" src="assets/weapon.svg"/></div>
+									<div class="data-item-gears-tier1-chest"><img class="item-svg color-uncommon" src="assets/chest.svg"/></div>
+									<div class="data-item-gears-tier1-boots"><img class="item-svg color-rare" src="assets/boots.svg"/></div>
+								</div>
+								<div class="data-item-tier tier2">
+									<div class="data-item-gears-tier2-wrist"><img class="item-svg color-epic" src="assets/wrist.svg"/></div>
+									<div class="data-item-gears-tier2-shoulder"><img class="item-svg color-legendary" src="assets/shoulder.svg"/></div>
+									<div class="data-item-gears-tier2-belt"><img class="item-svg color-mythic" src="assets/belt.svg"/></div>
+								</div>
+								<div class="data-item-tier tier3">
+									<div class="data-item-gears-tier3-ring"><img class="item-svg color-titan" src="assets/ring.svg"/></div>
+									<div class="data-item-gears-tier3-relic"><img class="item-svg color-none" src="assets/relic.svg"/></div>
+								</div>
+							</div>
+						</div>
+						<div class="data-item-data-line flex-gear">
+							<div class="data-item-data-line-title">Bijoux</div>
+							<div class="data-item-data-grid data-item-data-grid-jewels">
+								<div class="data-item-tier tier1">
+									<div class="data-item-jewels-tier1-ankh"><img class="item-svg color-rare" src="assets/ankh.svg"/></div>
+									<div class="data-item-jewels-tier1-rune"><img class="item-svg color-common" src="assets/rune.svg"/></div>
+									<div class="data-item-jewels-tier1-idol"><img class="item-svg color-rare" src="assets/idol.svg"/></div>
+								</div>
+								<div class="data-item-tier tier2">
+									<div class="data-item-jewels-tier2-talisman"><img class="item-svg color-uncommon" src="assets/talisman.svg"/></div>
+									<div class="data-item-jewels-tier2-necklace"><img class="item-svg color-epic" src="assets/necklace.svg"/></div>
+									<div class="data-item-jewels-tier2-trinket"><img class="item-svg color-uncommon" src="assets/trinket.svg"/></div>
+								</div>
+							</div>
+						</div>
+						<div class="data-item-data-line flex-gear">
+							<div class="data-item-data-line-title">Pierres d'âme</div>
+							<div class="data-item-data-grid data-item-data-grid-soulstones">
+								<div class="data-item-tier tier1">
+									<div class="data-item-soulstones-tier1-focus"><img class="item-svg color-rare" src="assets/focus.svg"/></div>
+									<div class="data-item-soulstones-tier1-stamina"><img class="item-svg color-rare" src="assets/stamina.svg"/></div>
+									<div class="data-item-soulstones-tier1-courage"><img class="item-svg color-common" src="assets/courage.svg"/></div>
+								</div>
+								<div class="data-item-tier tier2">
+									<div class="data-item-soulstones-tier2-wisdom"><img class="item-svg color-uncommon" src="assets/wisdom.svg"/></div>
+									<div class="data-item-soulstones-tier2-faith"><img class="item-svg color-epic" src="assets/faith.svg"/></div>
+									<div class="data-item-soulstones-tier2-charisma"><img class="item-svg color-common" src="assets/charisma.svg"/></div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="tab_item_wrap item-border tab_todo1">
-				<div class="main-title">A voir 1</div>
-			</div>
-			<div class="tab_item_wrap item-border tab_todo1">
-				En cours...
 			</div>
 			<div class="tab_item_wrap item-border tab_todo2">
 				<div class="main-title">A voir 2</div>

@@ -336,6 +336,7 @@ const dataInformation = {
     'gears' : [
         {
             'name': 'Arme',
+            'code': 'weapon',
             'tier': 1,
             'position': 1,
             'allCharacters': false,

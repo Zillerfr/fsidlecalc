@@ -796,7 +796,57 @@ select {
     margin-left: 5px;
 }
 
+/* affichage grille items */
+.data-item-data-grid {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+}
+
+.data-items-grid > .flex-gear {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.data-item-tier {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    gap: 5px;
+    justify-content: center;
+}
+
+.item-svg {
+    width: 40px;
+    height: 40px;
+}
+
+.data-items-grid {
+    align-items: stretch;
+}
+
+/* .data-item-data-grid > div {
+    border: solid 1px yellow;
+}
+
+.tier1 > div {
+    border: solid 1px red;
+}
+
+.tier2 > div {
+    border: solid 1px blue;
+}
+
+.tier3 > div {
+    border: solid 1px green;
+} */
+
 /* Rarity colors */
+.color-none {
+    background-color: var(--zone-background);
+}
 
 .color-common {
     background-color: var(--rarity-common);

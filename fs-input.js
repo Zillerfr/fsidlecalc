@@ -1,6 +1,5 @@
-function rarityChange(select) {
-    var selectedValue = select.value;
-    saveToStorage(select.id, select.value);
+function rarityChange(id, value) {
+    saveToStorage(id, value);
 }
 
 function updateCharacterList() {

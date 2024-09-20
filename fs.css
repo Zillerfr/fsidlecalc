@@ -819,59 +819,144 @@ select {
 }
 
 .item-svg {
-    width: 40px;
-    height: 40px;
+    width: 65px;
+    height: 65px;
 }
 
 .data-items-grid {
     align-items: stretch;
 }
 
-/* .data-item-data-grid > div {
-    border: solid 1px yellow;
+.data-item-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.tier1 > div {
-    border: solid 1px red;
+.vertical-control {
+  flex-direction: column;
 }
 
-.tier2 > div {
-    border: solid 1px blue;
+.vertical-control .value-control {
+  border: none;
+  margin: 0;
 }
 
-.tier3 > div {
-    border: solid 1px green;
-} */
+.vertical-control .controlled-input {
+  border: none;
+  width: 14px;
+}
+
+.data-item-data-grid-gears {
+  flex-direction: column-reverse;
+}
+
+/* select as image */
+
+.custom-select-container {
+    position: relative;
+    display: inline-block;
+}
+
+#select-image {
+    cursor: pointer;
+}
+
+.custom-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border: 2px solid var(--input-border);
+    color: var(--input-text-color);
+    font-size: 14px;
+    background-color: var(--zone-background);
+    z-index: 1000;
+    padding: 0;
+}
+
+.custom-options .data-item-tier {
+  padding: 0;
+  gap: 0;
+}
+
+.custom-options.show {
+    display: block;
+}
+
+.option {
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option:hover {
+    background-color: var(--input-background);
+}
+
 
 /* Rarity colors */
 .color-none {
     background-color: var(--zone-background);
 }
 
+.border-color-none {
+  border: 1px solid var(--zone-background);
+}
+
 .color-common {
     background-color: var(--rarity-common);
+}
+
+.border-color-common {
+  border: 1px solid var(--rarity-common);
 }
 
 .color-uncommon {
     background-color: var(--rarity-uncommon);
 }
 
+.border-color-uncommon {
+  border: 1px solid var(--rarity-uncommon);
+}
+
 .color-rare {
     background-color: var(--rarity-rare);
 }
 
+.border-color-rare {
+  border: 1px solid var(--rarity-rare);
+}
+
 .color-epic {
-    background-color: var(--rarity-epic);
+  background-color: var(--rarity-epic);
+}
+
+.border-color-epic {
+  border: 1px solid var(--rarity-epic);
 }
 
 .color-legendary {
     background-color: var(--rarity-legendary);
 }
 
+.border-color-legendary {
+  border: 1px solid var(--rarity-legendary);
+}
+
 .color-mythic {
     background-color: var(--rarity-mythic);
 }
 
+.border-color-mythic {
+  border: 1px solid var(--rarity-mythic);
+}
+
 .color-titan {
     background-color: var(--rarity-titan);
+}
+
+.border-color-titan {
+  border: 1px solid var(--rarity-titan);
 }

@@ -24,21 +24,19 @@ var minValues = {};
 
 function generateMinValues() {
 	dataInformation.characters.forEach(function (character, index) {
-		var charName = character.name;
+		var charName = character.code;
 
-		itemTypes.forEach(function(itemType, index) {
-
+		for(var itemType in itemTypes){
 			dataInformation[itemType].forEach(function(item, index) {
-				var rarityId = charName + "-" + itemType + "-" + item.name + "-rarity";
-				var itemId = charName + "-" + itemType + "-" + item.name + "-level";
+				var rarityId = charName + "-" + itemType + "-" + item.code + "-rarity";
+				var itemId = charName + "-" + itemType + "-" + item.code + "-level";
 				
 				minValues[rarityId] = 0;
 				minValues[itemId] = 0;
 
 
 			});
-
-		});
+		}
 
 	 });
 	 minValues["max-reached-stage"] = 0;
@@ -91,10 +89,15 @@ function saveAllToStorage() {
 	localStorage.setItem(localStorageItemName, JSON.stringify(dataInput));
 }
 
-function loadFromStorage() {
+function getStorageValues() {
 	var retrievedObject = localStorage.getItem(localStorageItemName);
 	if (retrievedObject) {
 		dataInput = JSON.parse(retrievedObject);
+	}
+}
+
+function loadFromStorage() {
+	if (!jQuery.isEmptyObject(dataInput)) {
 
 		$("input").each(function() {
 			if (this.id != "") {
@@ -119,8 +122,16 @@ function loadFromStorage() {
 				if (!dataInput.hasOwnProperty(this.id)) {
 					completeUnknownValue(this.id);
 				}
-				if (this.classList.contains('select-input')) {
+				if (this.classList.contains('custom-select')) {
 					$(this).val(dataInput[this.id]);
+					if (dataInput[this.id] > 0) {
+						var container = $(this).closest('.custom-select-container');
+						var image = $(this).closest('.custom-select-container').find('.select-image');
+						var inputContainer = container.siblings('.input-with-control')
+						changeRarityClass(image, dataInput[this.id]);
+						changeRarityClass(container, dataInput[this.id]);
+						changeRarityBorderClass(inputContainer, dataInput[this.id]);
+					}
 				}
 			}
 		})		

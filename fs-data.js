@@ -17,7 +17,20 @@ var dataInput = {};
  * Game base data
  * ===================================
  */
-const itemTypes = ['gears', 'jewels', 'soulstones'];
+const itemTypes = {
+    'gears': {
+        'nbTier': 3,
+        'name': "Équipement"
+    }, 
+    'jewels' : {
+        'nbTier': 2,
+        'name': "Bijoux"
+    },
+    'soulstones' : {
+        'nbTier': 2,
+        'name': "Pierres d'âme"
+    }
+};
 
 const dataInformation = {
 	'specList': [
@@ -49,190 +62,223 @@ const dataInformation = {
     'characters' : [
         {
             'name': 'Talia',
+            'code': 'talia',
             'merc': false,
             'spec': 0,
             'unlockStage': 2
         },
         {
             'name': 'Burt',
+            'code': 'burt',
             'merc': false,
             'spec': 0,
             'unlockStage': 4
         },
         {
             'name': 'Solaine',
+            'code': 'solaine',
             'merc': false,
             'spec': 0,
             'unlockStage': 7
         },
         {
             'name': 'Boris',
+            'code': 'boris',
             'merc': false,
             'spec': 1,
             'unlockStage': 30
         },
         {
             'name': 'Benedictus',
+            'code': 'benedictus',
             'merc': false,
             'spec': 2,
             'unlockStage': 50
         },
         {
             'name': 'Léo',
+            'code': 'leo',
             'merc': false,
             'spec': 1,
             'unlockStage': 150
         },
         {
             'name': 'Muriel',
+            'code': 'muriel',
             'merc': false,
             'spec': 0,
             'unlockStage': 275
         },
         {
             'name': 'Blaze',
+            'code': 'blaze',
             'merc': false,
             'spec': 0,
             'unlockStage': 400
         },
         {
             'name': 'Luana',
+            'code': 'luana',
             'merc': false,
             'spec': 2,
             'unlockStage': 550
         },
         {
             'name': 'Valerius',
+            'code': 'valerius',
             'merc': false,
             'spec': 1,
             'unlockStage': 700
         },
         {
             'name': 'Astrid',
+            'code': 'astrid',
             'merc': false,
             'spec': 0,
             'unlockStage': 800
         },
         {
             'name': 'Ina',
+            'code': 'ina',
             'merc': false,
             'spec': 0,
             'unlockStage': 900
         },
         {
             'name': 'Fini',
+            'code': 'fini',
             'merc': false,
             'spec': 0,
             'unlockStage': 1050
         },
         {
             'name': 'Asmondai',
+            'code': 'asmondai',
             'merc': false,
             'spec': 1,
             'unlockStage': 1300
         },
         {
             'name': 'Danysa',
+            'code': 'danysa',
             'merc': false,
             'spec': 1,
             'unlockStage': 1550
         },
         {
             'name': 'Iseris',
+            'code': 'iseris',
             'merc': false,
             'spec': 0,
             'unlockStage': 1800
         },
         {
             'name': 'Belien',
+            'code': 'belien',
             'merc': false,
             'spec': 2,
             'unlockStage': 2050
         },
         {
             'name': 'Sely',
+            'code': 'sely',
             'merc': false,
             'spec': 0,
             'unlockStage': 2300
         },
         {
             'name': 'Randal',
+            'code': 'randal',
             'merc': false,
             'spec': 1,
             'unlockStage': 2550
         },
         {
             'name': 'Molly',
+            'code': 'molly',
             'merc': false,
             'spec': 0,
             'unlockStage': 2800
         },
         {
             'name': 'Layla',
+            'code': 'layla',
             'merc': false,
             'spec': 2,
             'unlockStage': 3050
         },
         {
             'name': 'Joe',
+            'code': 'joe',
             'merc': false,
             'spec': 0,
             'unlockStage': 3300
         },
         {
             'name': 'Hongyu',
+            'code': 'hongyu',
             'merc': false,
             'spec': 0,
             'unlockStage': 3600
         },
         {
             'name': 'Amun',
+            'code': 'amun',
             'merc': false,
             'spec': 0,
             'unlockStage': 3900
         },
         {
             'name': 'Panko',
+            'code': 'panko',
             'merc': true,
             'spec': 1
         },
         {
             'name': 'Cirilo',
+            'code': 'cirilo',
             'merc': true,
             'spec': 0
         },
         {
             'name': 'Vilon',
+            'code': 'vilon',
             'merc': true,
             'spec': 0
         },
         {
             'name': 'Zelea',
+            'code': 'zelea',
             'merc': true,
             'spec': 0
         },
         {
             'name': 'Yavo',
+            'code': 'yavo',
             'merc': true,
             'spec': 2
         },
         {
             'name': 'Anzo',
+            'code': 'anzo',
             'merc': true,
             'spec': 1
         },
         {
             'name': 'Zoruk',
+            'code': 'zoruk',
             'merc': true,
             'spec': 2
         },
         {
             'name': 'Rickie',
+            'code': 'rickie',
             'merc': true,
             'spec': 0
         },
         {
             'name': 'Jess',
+            'code': 'jess',
             'merc': true,
             'spec': 0
         }
@@ -240,6 +286,7 @@ const dataInformation = {
     'rarities' : [
         {
             'name': 'Aucun',
+            'code': 'none',
             'maxLevel' : 0,
             'baseEffectGear' : {
                 'tier1' : 0,
@@ -257,6 +304,7 @@ const dataInformation = {
         },
         {
             'name': 'Ordinaire',
+            'code': 'common',
             'maxLevel' : 2,
             'baseEffectGear' : {
                 'tier1' : 4,
@@ -268,6 +316,7 @@ const dataInformation = {
         },
         {
             'name': 'Extraordinaire',
+            'code': 'uncommon',
             'maxLevel' : 4,
             'baseEffectGear' : {
                 'tier1' : 10,
@@ -279,6 +328,7 @@ const dataInformation = {
         },
         {
             'name': 'Rare',
+            'code': 'rare',
             'maxLevel' : 6,
             'baseEffectGear' : {
                 'tier1' : 28,
@@ -290,6 +340,7 @@ const dataInformation = {
         },
         {
             'name': 'Épique',
+            'code': 'epic',
             'maxLevel' : 8,
             'baseEffectGear' : {
                 'tier1' : 88,
@@ -301,6 +352,7 @@ const dataInformation = {
         },
         {
             'name': 'Légendaire',
+            'code': 'legendary',
             'maxLevel' : 10,
             'baseEffectGear' : {
                 'tier1' : 244,
@@ -312,6 +364,7 @@ const dataInformation = {
         },
         {
             'name': 'Mythique',
+            'code': 'mythic',
             'maxLevel' : 12,
             'baseEffectGear' : {
                 'tier1' : 730,
@@ -323,6 +376,7 @@ const dataInformation = {
         },
         {
             'name': 'Titan',
+            'code': 'titan',
             'maxLevel' : 14,
             'baseEffectGear' : {
                 'tier1' : 2188,
@@ -348,6 +402,7 @@ const dataInformation = {
         },
         {
             'name': 'Torse',
+            'code': 'chest',
             'tier': 1,
             'position': 2,
             'allCharacters': false,
@@ -359,6 +414,7 @@ const dataInformation = {
         },
         {
             'name': 'Bottes',
+            'code': 'boots',
             'tier': 1,
             'position': 3,
             'allCharacters': false,
@@ -370,6 +426,7 @@ const dataInformation = {
         },
         {
             'name': 'Poignet',
+            'code': 'wrist',
             'tier': 2,
             'position': 1,
             'allCharacters': true,
@@ -381,6 +438,7 @@ const dataInformation = {
         },
         {
             'name': 'Épaule',
+            'code': 'shoulder',
             'tier': 2,
             'position': 2,
             'allCharacters': true,
@@ -392,6 +450,7 @@ const dataInformation = {
         },
         {
             'name': 'Ceinture',
+            'code': 'belt',
             'tier': 2,
             'position': 3,
             'allCharacters': true,
@@ -403,6 +462,7 @@ const dataInformation = {
         },
         {
             'name': 'Anneau',
+            'code': 'ring',
             'tier': 3,
             'position': 1,
             'allCharacters': false,
@@ -414,6 +474,7 @@ const dataInformation = {
         },
         {
             'name': 'Relique',
+            'code': 'relic',
             'tier': 3,
             'position': 2,
             'allCharacters': true,
@@ -427,6 +488,7 @@ const dataInformation = {
 	'jewels' : [
         {
             'name': 'Ânkh',
+            'code': 'ankh',
             'tier': 1,
             'position': 1,
             'damage': 1,
@@ -435,6 +497,7 @@ const dataInformation = {
         },
         {
             'name': 'Rune',
+            'code': 'rune',
             'tier': 1,
             'position': 2,
             'damage': 0,
@@ -443,6 +506,7 @@ const dataInformation = {
         },
         {
             'name': 'Idole',
+            'code': 'idol',
             'tier': 1,
             'position': 3,
             'damage': 0,
@@ -451,6 +515,7 @@ const dataInformation = {
         },
         {
             'name': 'Talisman',
+            'code': 'talisman',
             'tier': 2,
             'position': 1,
             'damage': 1,
@@ -459,6 +524,7 @@ const dataInformation = {
         },
         {
             'name': 'Collier',
+            'code': 'necklace',
             'tier': 2,
             'position': 2,
             'damage': 1,
@@ -467,6 +533,7 @@ const dataInformation = {
         },
         {
             'name': 'Babiole',
+            'code': 'trinket',
             'tier': 2,
             'position': 3,
             'damage': 0,
@@ -477,6 +544,7 @@ const dataInformation = {
     'soulstones' : [
         {
             'name': 'Concentration',
+            'code': 'focus',
             'tier': 1,
             'position': 1,
             'rarityUpgrade': 'tier1',
@@ -488,6 +556,7 @@ const dataInformation = {
         },
         {
             'name': 'Endurance',
+            'code': 'stamina',
             'tier': 1,
             'position': 2,
             'rarityUpgrade': 'tier1',
@@ -499,6 +568,7 @@ const dataInformation = {
         },
         {
             'name': 'Courage',
+            'code': 'courage',
             'tier': 1,
             'position': 3,
             'rarityUpgrade': 'tier1',
@@ -510,6 +580,7 @@ const dataInformation = {
         },
         {
             'name': 'Sagesse',
+            'code': 'wisdom',
             'tier': 2,
             'position': 1,
             'rarityUpgrade': 'wisdom',
@@ -521,6 +592,7 @@ const dataInformation = {
         },
         {
             'name': 'Foi',
+            'code': 'faith',
             'tier': 2,
             'position': 2,
             'rarityUpgrade': 'faith',
@@ -532,6 +604,7 @@ const dataInformation = {
         },
         {
             'name': 'Charisme',
+            'code': 'charisma',
             'tier': 2,
             'position': 3,
             'rarityUpgrade': 'charisma',

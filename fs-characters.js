@@ -144,7 +144,7 @@ function addItemLine(itemType, characterName, itemName, currentTier) {
     minusButton.attr("onClick", "valueUpdate('" + itemId + "',false)");
     
     var divLevelInput = $('<div></div>');
-    var levelInput = $('<input id="' + itemId + '"></input>').addClass('input-int-pet-evolve controlled-input auto-width');
+    var levelInput = $('<input id="' + itemId + '"></input>').addClass('input-gear-level controlled-input auto-width');
     levelInput.attr("type", "number");
     levelInput.attr("disabled", true);    
     divLevelInput.append(levelInput);

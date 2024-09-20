@@ -143,16 +143,23 @@ function loadFromStorage() {
 function valueUpdate(idObject, isPositive) {
 
 	var newValue = parseFloat($("#" + idObject).val());
+	var objectRarity = $("#" + idObject).closest('.data-item-container').find('.custom-select').val();
+	var isGearLevelInput = $("#" + idObject).hasClass("input-gear-level");
+
 	if (!newValue) newValue = 0;
 	if (isPositive) {
 		newValue += 1;
 	} else {
 		newValue -= 1;
 	}
-	var maxValue = 14; // to do, récup max value from type
-	var minValue = 0;  // to do, récup min value from type
+	var minValue = 0;
+	var maxValue = 14;
 
-	if (maxValue > 0 && newValue > maxValue) newValue = maxValue;
+	if (isGearLevelInput) {
+		maxValue = dataInformation.rarities[objectRarity].maxLevel;
+	}
+
+	if (maxValue >= 0 && newValue > maxValue) newValue = maxValue;
 	if (newValue < minValue) newValue = minValue;
 
 	saveToStorage(idObject, newValue);

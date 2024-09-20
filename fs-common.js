@@ -101,7 +101,7 @@ function loadFromStorage() {
 
 		$("input").each(function() {
 			if (this.id != "") {
-				if (!dataInput.hasOwnProperty(this.id)) {
+				if (!dataInput.hasOwnProperty(this.id) || dataInput[this.id] == '') {
 					completeUnknownValue(this.id);
 				}
 				if (this.classList.contains('class-for-checkbox-input')) {
@@ -119,7 +119,7 @@ function loadFromStorage() {
 		})
 		$("select").each(function() {
 			if (this.id != "") {
-				if (!dataInput.hasOwnProperty(this.id)) {
+				if (!dataInput.hasOwnProperty(this.id) || dataInput[this.id] == '') {
 					completeUnknownValue(this.id);
 				}
 				if (this.classList.contains('custom-select')) {

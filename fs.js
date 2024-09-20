@@ -14,9 +14,9 @@
 		 * Initialisation 
 		 */
 		initTheme();
+		generateMinValues()
 		getStorageValues();
 		initializeCharactersSheet();
-		generateMinValues()
 		loadFromStorage();
 
 		// custom image select

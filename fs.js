@@ -21,22 +21,12 @@
 
 		// custom image select
 		$('.select-image').on('click', function() {
-			$(this).siblings('.custom-options').toggleClass('show');
+			customSelectClick($(this));			
 		});
 		
 		$('.option').on('click', function() {
-			var value = $(this).data('value');
-			var container = $(this).closest('.custom-select-container');
-			var select = container.find('.custom-select');
-			var customOptions = $(this).closest('.custom-select-container').find('.custom-options');
-			var image = $(this).closest('.custom-select-container').find('.select-image');
-			var inputContainer = container.siblings('.input-with-control')
-			select.val(value);
-			rarityChange(select.attr("id"), value);
-			changeRarityClass(image, value);
-			changeRarityClass(container, value);
-			changeRarityBorderClass(inputContainer, value);
-			customOptions.removeClass('show');
+			customOptionClick($(this));
+
 		});
 
 		/**

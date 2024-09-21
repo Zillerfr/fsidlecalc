@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
 
+/* common */
+:root {
+    --rarity-common: #A66A3B;
+    --rarity-uncommon: #4fd742;
+    --rarity-rare: #1d4bd4;
+    --rarity-epic: #b240f6;
+    --rarity-legendary: #F77115;
+    --rarity-mythic: #4ad3dc;
+    --rarity-titan: #fcce53;
+}
+
 /* Light mode */
 [data-theme="light"] {
     --body-background: #F3F5F6;
@@ -32,13 +43,6 @@
     --dropdown-arrow-background: #39838E;
     --dropdown-arrow-color: #282D2F;
     --rarity-none: #ffffff;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 /* Dark mode */
@@ -73,13 +77,6 @@
     --dropdown-arrow-background: #8C9193;
     --dropdown-arrow-color: #000000;
     --rarity-none: #1B1E1F;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 [data-theme="legacy"] {
@@ -113,13 +110,6 @@
     --dropdown-arrow-background: #7fc469c9;
     --dropdown-arrow-color: #FFFFFF;
     --rarity-none: #ffffff;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 [data-theme="m_green"] {
@@ -153,13 +143,6 @@
     --dropdown-arrow-background: #03624a;
     --dropdown-arrow-color: #009947;
     --rarity-none: #004030;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 [data-theme="d_blue"] {
@@ -193,13 +176,6 @@
     --dropdown-arrow-background: #08448a;
     --dropdown-arrow-color: #3c8bff;
     --rarity-none: #013765;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 [data-theme="burnt_sienna"] {
@@ -233,13 +209,6 @@
     --dropdown-arrow-background: #AE5F15;
     --dropdown-arrow-color: #FFE5B4;
     --rarity-none: #FAD5A5;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }
 
 [data-theme="chandler"] {
@@ -273,11 +242,4 @@
     --dropdown-arrow-background: #95afb9;
     --dropdown-arrow-color: #646464;
     --rarity-none: #c0d0d5;
-    --rarity-common: #aa6f41;
-    --rarity-uncommon: #4fd742;
-    --rarity-rare: #1d4bd4;
-    --rarity-epic: #b240f6;
-    --rarity-legendary: #f78b30;
-    --rarity-mythic: #4ad3dc;
-    --rarity-titan: #fcce53;
 }

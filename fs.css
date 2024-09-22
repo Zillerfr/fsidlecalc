@@ -464,6 +464,14 @@ button:hover, .button:hover {
     width: 200px;
 }
   
+.character-gear {
+  max-width: fit-content;
+}
+
+.character-title {
+  margin-top: 0;
+  border-bottom: solid 1px var(--zone-border-color);
+}
 
 /* The switch - the box around the slider */
 .switch {

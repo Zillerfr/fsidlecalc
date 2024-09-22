@@ -196,10 +196,11 @@ function initializeCharactersSheet() {
         var characterGearsId = "character-gear-" + i;
 
         // Character title
-        var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone item-border title-online-drop title-flex character-title').text(character.name);
-        $charactersBox.append(divLineTitle);
+        var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone title-online-drop title-flex character-title').text(character.name);
+        //$charactersBox.append(divLineTitle);
         // Character Data Box
         var divLineBox = $('<div id="' + characterGearsId + '"></div>').addClass('data-category-title item-border character-gear');
+        divLineBox.append(divLineTitle);
         var divLineData = $('<div></div>').addClass('data-items data-items-flex data-items-grid');
         // Character Gear
         for(var itemType in itemTypes){

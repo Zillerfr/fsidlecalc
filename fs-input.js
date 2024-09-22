@@ -9,7 +9,17 @@ function updateCharacterList() {
 }
 
 function customSelectClick(select) {
-    select.siblings('.custom-options').toggleClass('show');
+    var classToAdd = true;
+    if (select.siblings('.custom-options').hasClass('show')) {
+        classToAdd = false;
+    }
+    $(".custom-options").removeClass('show')
+    
+    if (classToAdd) {
+        select.siblings('.custom-options').addClass('show');
+    } else {
+        select.siblings('.custom-options').removeClass('show');
+    }
 }
 
 function forceMaxValue(inputField, rarityValue) {

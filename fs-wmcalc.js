@@ -1,6 +1,6 @@
 function vmEffectFormat(number) {
     const numberFormatter = new Intl.NumberFormat(navigator.languages[0], { maximumFractionDigits: 0, useGrouping: true });
-	return "+" + numberFormatter.format(number) + " %";
+	return numberFormatter.format(number);
 }
 
 
@@ -55,8 +55,12 @@ function calculateDataWM() {
         healthMaxBoost = healthMaxBoost * charHealthBonus;
         armorMaxBoost  = armorMaxBoost  * charArmorBonus;
 
-        dataWM.dataVMCurrent.push([i, character.name, vmEffectFormat(damageBoost), vmEffectFormat(healthBoost), vmEffectFormat(armorBoost), vmEffectFormat(healthBoost + armorBoost)]);
-        dataWM.dataVMMax.push([i, character.name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+        if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0) {
+            dataWM.dataVMCurrent.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(healthBoost), vmEffectFormat(armorBoost), vmEffectFormat(healthBoost + armorBoost)]);
+        }        
+        if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
+            dataWM.dataVMMax.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+        }
     });
 
     return dataWM;
@@ -82,6 +86,7 @@ function initDataTable() {
         columns: [
             { title: '' },
             { title: 'Personnage' },
+            { title: 'Spécialité' },
             { title: 'Dégâts' },
             { title: 'Santé' },
             { title: 'Résistance' },
@@ -97,6 +102,7 @@ function initDataTable() {
         columns: [
             { title: '' },
             { title: 'Personnage' },
+            { title: 'Spécialité' },
             { title: 'Dégâts' },
             { title: 'Santé' },
             { title: 'Résistance' },

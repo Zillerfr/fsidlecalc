@@ -593,6 +593,10 @@ div.dt-container .dt-input {
   color: var(--dropdown-color);
 }
 
+div.dt-container {
+  width: 100%;
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

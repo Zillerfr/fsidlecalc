@@ -1,3 +1,52 @@
+// Nettoyage des données
+function doReset() {
+	const response = confirm("Toutes les informations saisies seront effacées, êtes-vous sur de vouloir continuer ?");
+	if (response) {
+		localStorage.setItem(localStorageItemName, JSON.stringify(minValues));
+		window.location.reload();
+	}
+}
+
+// Export des données
+function doExport() {
+
+	var jsonString = JSON.stringify(dataInput);
+	var b64String = btoa(jsonString);
+
+	$('#exported-data').text(b64String);
+	$('#exported-data').removeClass('hidden');
+
+}
+
+function copyToClipboard() {       
+    // Copier le texte dans le presse-papiers
+    navigator.clipboard.writeText($("#exported-data").text()).then(function() {
+    }, function(err) {
+        console.error("Erreur lors de la copie : ", err);
+    });
+}
+
+// Import des données
+function textAreaAdjust(o) {   o.style.height = "1px";   o.style.height = (25+o.scrollHeight)+"px"; }
+
+function doImport() {
+	var importedText = atob($('#import-data').val().replace(/\n/g, ''));
+	var importOk = false;
+	var importedData = {};
+	try {
+		importedData = JSON.parse(importedText);
+		importOk = true;
+	} catch (e) {
+		alert('Données corrompues.')
+	}
+
+	if (importOk) {
+		updateValuesFromObject(importedData);
+		$('#import-data').val("");
+		window.location.reload();
+	}
+}
+
 // Gestion thèmes
 function initTheme() {
 	const localStorageTheme = localStorage.getItem("theme");

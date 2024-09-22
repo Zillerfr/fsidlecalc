@@ -13,11 +13,13 @@
 		/**
 		 * Initialisation 
 		 */
+		$('#spinner').show();
 		initTheme();
 		generateMinValues()
 		getStorageValues();
 		initializeCharactersSheet();
 		loadFromStorage();
+		$('#spinner').hide();
 
 		// custom image select
 		$('.select-image').on('click', function() {

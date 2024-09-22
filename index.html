@@ -15,6 +15,9 @@
 </head>
 
 <body id="home">
+	<div id="spinner" class="spinner">
+		<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+	</div>
 	<div class="wrapper">
 		<div class="title-wrapper">
 			<h1 class="title main-title">
@@ -38,9 +41,9 @@
 		<div class="tabs_wrap item-border">
 			<ul>
 				<li data-tabs="tab_data" class="active">Vos Informations</li>
-				<li data-tabs="tab_showitems">A voir 1</li>
+				<li data-tabs="tab_wmpower">A voir 1</li>
 				<li data-tabs="tab_todo2">A voir 2</li>
-				<li data-tabs="tab_todo3">A voir 3</li>
+				<li data-tabs="tab_settings">Gestion des données</li>
 			</ul>
 		</div>
 		<div class="container">
@@ -69,10 +72,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_showitems">
+			<div class="tab_item_wrap item-border tab_wmpower">
 				<div class="main-title">A voir 1</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_showitems">
+			<div class="tab_item_wrap item-border tab_wmpower">
 			</div>
 			<div class="tab_item_wrap item-border tab_todo2">
 				<div class="main-title">A voir 2</div>
@@ -80,11 +83,42 @@
 			<div class="tab_item_wrap item-border tab_todo2">
 				En cours...
 			</div>
-			<div class="tab_item_wrap item-border tab_todo3">
-				<div class="main-title">A voir 3</div>
+			<div class="tab_item_wrap item-border tab_settings">
+				<div class="main-data">
+					<div class="main-title">Gestion des données</div>
+					<div class="mordek-fight-sim">
+						<button id="reset-data-button" class="button" onclick="doReset()">Reset all data</button>
+					</div>
+				</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_todo3">
-				En cours...
+			<div class="tab_item_wrap item-border tab_settings">
+				<div class="main-data no-wrap">
+					<div class="main-title one-line">Export des informations</div>
+					<div class="ascension-info no-wrap full-flex">
+						<div id="exported-container" class="mordek-fight-switch full-flex">
+							<div>Informations exportées</div>
+							<div id="exported-data" class="wrap-text item-border full-size hidden"></div>
+						</div>
+						<div class="mordek-fight-sim">
+							<button id="reset-data-button" class="button" onclick="doExport()">Exporter</button>
+							<button id="reset-data-button" class="button" onclick="copyToClipboard()">Copier</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_item_wrap item-border tab_settings">
+				<div class="main-data">
+					<div class="main-title">Import des informations</div>
+					<div class="ascension-info full-flex">
+						<div id="exported-container" class="mordek-fight-switch full-flex">
+							<div>Informations à importer</div>
+							<textarea id="import-data" class="import-data full-size controlled-input" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+						</div>
+						<div class="mordek-fight-sim">
+							<button id="reset-data-button" class="button" onclick="doImport()">Importer</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

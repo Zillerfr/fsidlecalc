@@ -142,6 +142,8 @@ function loadFromStorage() {
 
 function valueUpdate(idObject, isPositive) {
 
+	$(".custom-options").removeClass('show');
+
 	var newValue = parseFloat($("#" + idObject).val());
 	var objectRarity = $("#" + idObject).closest('.data-item-container').find('.custom-select').val();
 	var isGearLevelInput = $("#" + idObject).hasClass("input-gear-level");

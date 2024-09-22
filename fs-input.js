@@ -3,6 +3,7 @@ function rarityChange(id, value) {
 }
 
 function updateCharacterList() {
+    $(".custom-options").removeClass('show');
     var maxStage = $('#max-reached-stage').val();
     if (!maxStage) maxStage = 0;
     saveToStorage('max-reached-stage', maxStage);
@@ -13,7 +14,7 @@ function customSelectClick(select) {
     if (select.siblings('.custom-options').hasClass('show')) {
         classToAdd = false;
     }
-    $(".custom-options").removeClass('show')
+    $(".custom-options").removeClass('show');
     
     if (classToAdd) {
         select.siblings('.custom-options').addClass('show');
@@ -46,6 +47,7 @@ function customOptionClick(option) {
 }
 
 function selectCharacter(select) {
+    $(".custom-options").removeClass('show');
     if (select.value > -1) {
         $('.character-title').hide();
         $('.character-gear').hide();

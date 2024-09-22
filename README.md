@@ -4,7 +4,6 @@ Simple french calculator for Firestone Idle RPG
 Open it on https://zillerfr.github.io/fsidlecalc/ (ctrl+click to open in new window)
 
 TODO List :
-- Close custom select if opening another or interacting with +/- button
 - add mercenary list with unlock checkboxes
 - if displaying all, don't show character under max stage unlock & not unlocked mercenaries
 - add english translation for non "fr" browser

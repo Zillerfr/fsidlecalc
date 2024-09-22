@@ -377,6 +377,12 @@ h1.main-title {
 	box-sizing: border-box;
 }
 
+.title-with-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .bold-title {
 	font-weight: 600;
 }
@@ -551,7 +557,7 @@ select {
     overflow: hidden;
   }
   .select_box.small-select_box {
-    width: 100px;
+    width: 200px;
     height: 23px;
   }
 

@@ -187,15 +187,19 @@ function addItemBox(itemType, characterName) {
 
 function initializeCharactersSheet() {
     $charactersBox = $("#characters-box");
+    $charactersSelect = $("#character-selection");
 
     dataInformation.characters
     $.each(dataInformation.characters, function (i, character) {
 
+        var characterTitleId = "character-title-" + i;
+        var characterGearsId = "character-gear-" + i;
+
         // Character title
-        var divLineTitle = $('<div></div>').addClass('data-title title-alone item-border title-online-drop title-flex').text(character.name);
+        var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone item-border title-online-drop title-flex character-title').text(character.name);
         $charactersBox.append(divLineTitle);
         // Character Data Box
-        var divLineBox = $('<div></div>').addClass('data-category-title item-border');
+        var divLineBox = $('<div id="' + characterGearsId + '"></div>').addClass('data-category-title item-border character-gear');
         var divLineData = $('<div></div>').addClass('data-items data-items-flex data-items-grid');
         // Character Gear
         for(var itemType in itemTypes){
@@ -206,6 +210,10 @@ function initializeCharactersSheet() {
         divLineBox.append(divLineData);
         $charactersBox.append(divLineBox);
 
+        $charactersSelect.append($('<option>', { 
+            value: i,
+            text : character.name 
+        }));
 
     });
 

@@ -60,8 +60,13 @@
 				</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_data active data" id="characters-box">
-				<div class="data-title title-alone item-border">
+				<div class="data-title title-alone item-border title-with-input">
 					<div class="bold-title">Personnage(s)</div>
+					<div class="select_box small-select_box large-select_box">
+						<select id="character-selection" class="button_select" onChange="selectCharacter(this)">
+							<option value="-1">Tous les personnages</option>						
+						</select>
+					</div>
 				</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_showitems">

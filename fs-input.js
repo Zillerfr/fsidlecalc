@@ -34,3 +34,15 @@ function customOptionClick(option) {
     changeRarityBorderClass(inputContainer, value);
     customOptions.removeClass('show');
 }
+
+function selectCharacter(select) {
+    if (select.value > -1) {
+        $('.character-title').hide();
+        $('.character-gear').hide();
+        $('#character-title-' + select.value).show();
+        $('#character-gear-' + select.value).show();
+    } else {
+        $('.character-title').show();
+        $('.character-gear').show();
+    }
+}

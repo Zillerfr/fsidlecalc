@@ -588,6 +588,11 @@ button:hover, .button:hover {
   }
 }
 
+div.dt-container .dt-input {
+  background-color: var(--dropdown-background);
+  color: var(--dropdown-color);
+}
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;

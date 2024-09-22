@@ -58,16 +58,9 @@
 
 				switch (tabval) {
 					case "tab_data" :
-						console.log("ouverture onglet informations");						
 						break;
-					case "tab_showitems" :
-						console.log("ouverture onglet à voir 1");
-						break;
-					case "tab_todo2" :
-						console.log("ouverture onglet à voir 2");
-						break;
-					case "tab_todo3" :
-						console.log("ouverture onglet à voir 3");
+					case "tab_wmpower" :
+						initDataTable()
 						break;
 					default:
 						break;

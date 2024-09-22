@@ -189,7 +189,6 @@ function initializeCharactersSheet() {
     $charactersBox = $("#characters-box");
     $charactersSelect = $("#character-selection");
 
-    dataInformation.characters
     $.each(dataInformation.characters, function (i, character) {
 
         var characterTitleId = "character-title-" + i;

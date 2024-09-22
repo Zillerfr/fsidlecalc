@@ -5,8 +5,10 @@
 	<!-- pour éviter les problèmes d'accents-->
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<!-- jQuery library -->
+	<!-- jQuery / dataTables libraries -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.dataTables.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="fs-root.css" />
 	<link rel="stylesheet" type="text/css" href="fs.css" />
@@ -41,7 +43,7 @@
 		<div class="tabs_wrap item-border">
 			<ul>
 				<li data-tabs="tab_data" class="active">Vos Informations</li>
-				<li data-tabs="tab_wmpower">A voir 1</li>
+				<li data-tabs="tab_wmpower">Equipage Machines de Guerre</li>
 				<li data-tabs="tab_todo2">A voir 2</li>
 				<li data-tabs="tab_settings">Gestion des données</li>
 			</ul>
@@ -73,9 +75,17 @@
 				</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_wmpower">
-				<div class="main-title">A voir 1</div>
+				<div class="main-title">Equipage Machines de Guerre</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_wmpower">
+				<div class="data-title title-alone item-border title-with-input">
+					<div class="bold-title">Bonus apportés par les personnage aux machines de guerre</div>
+				</div>
+				<table id="wmTable" class="display"></table>
+				<div class="data-title title-alone item-border title-with-input">
+					<div class="bold-title">Bonus potentiels pouvant être apportés par les personnage aux machines de guerre (en montant les bijoux au maximum)</div>
+				</div>
+				<table id="wmTablePotential" class="display"></table>				
 			</div>
 			<div class="tab_item_wrap item-border tab_todo2">
 				<div class="main-title">A voir 2</div>
@@ -127,6 +137,7 @@
 <script src="fs-common.js"></script>
 <script src="fs-input.js"></script>
 <script src="fs-characters.js"></script>
+<script src="fs-wmcalc.js"></script>
 <script src="fs.js"></script>
 
 </html>

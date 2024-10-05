@@ -8,7 +8,8 @@ function calculateDataWM() {
 
     var dataWM = {
         'dataVMCurrent': [],
-        'dataVMMax': []
+        'dataVMMax': [],
+        'dataVMMix': []
     };
 
     $.each(dataInformation.characters, function (i, character) {
@@ -61,6 +62,9 @@ function calculateDataWM() {
         if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
             dataWM.dataVMMax.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
         }
+        if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0 || damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
+            dataWM.dataVMMix.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(damageMaxBoost), vmEffectFormat(healthBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthBoost + armorBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+        }
     });
 
     return dataWM;
@@ -79,6 +83,10 @@ function initDataTable() {
         $('#wmTablePotential').DataTable().destroy();
     }
 
+    if ( $.fn.DataTable.isDataTable('#wmTableMix') ) {
+        $('#wmTableMix').DataTable().destroy();
+    }
+
     $('#wmTable').DataTable( {
         language: {
             url: 'datatables_fr-FR.json',
@@ -92,6 +100,7 @@ function initDataTable() {
             { title: 'Résistance' },
             { title: 'Santé + Résistance' }
         ],
+        pageLength: 50,
         data: dataWM.dataVMCurrent
     } );
 
@@ -108,6 +117,28 @@ function initDataTable() {
             { title: 'Résistance' },
             { title: 'Santé + Résistance' }
         ],
+        pageLength: 50,
         data: dataWM.dataVMMax
+    } );
+
+    $('#wmTableMix').DataTable( {
+        language: {
+            url: 'datatables_fr-FR.json',
+        },
+        columns: [
+            { title: '' },
+            { title: 'Nom' },
+            { title: 'Spéc' },
+            { title: 'Dégâts' },
+            { title: 'Dégâts Pot.' },
+            { title: 'Santé' },
+            { title: 'Santé Pot.' },
+            { title: 'Résist' },
+            { title: 'Résist Pot.' },
+            { title: 'Santé/Résist' },
+            { title: 'Santé/Résist Potentiel' }
+        ],
+        pageLength: 50,
+        data: dataWM.dataVMMix
     } );
 }

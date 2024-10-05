@@ -64,6 +64,7 @@ const dataInformation = {
             'name': 'Talia',
             'code': 'talia',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 2
         },
@@ -71,6 +72,7 @@ const dataInformation = {
             'name': 'Burt',
             'code': 'burt',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 4
         },
@@ -78,6 +80,7 @@ const dataInformation = {
             'name': 'Solaine',
             'code': 'solaine',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 7
         },
@@ -85,6 +88,7 @@ const dataInformation = {
             'name': 'Boris',
             'code': 'boris',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 30
         },
@@ -92,6 +96,7 @@ const dataInformation = {
             'name': 'Benedictus',
             'code': 'benedictus',
             'merc': false,
+            'god': false,
             'spec': 2,
             'unlockStage': 50
         },
@@ -99,6 +104,7 @@ const dataInformation = {
             'name': 'Léo',
             'code': 'leo',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 150
         },
@@ -106,6 +112,7 @@ const dataInformation = {
             'name': 'Muriel',
             'code': 'muriel',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 275
         },
@@ -113,6 +120,7 @@ const dataInformation = {
             'name': 'Blaze',
             'code': 'blaze',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 400
         },
@@ -120,6 +128,7 @@ const dataInformation = {
             'name': 'Luana',
             'code': 'luana',
             'merc': false,
+            'god': false,
             'spec': 2,
             'unlockStage': 550
         },
@@ -127,6 +136,7 @@ const dataInformation = {
             'name': 'Valerius',
             'code': 'valerius',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 700
         },
@@ -134,6 +144,7 @@ const dataInformation = {
             'name': 'Astrid',
             'code': 'astrid',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 800
         },
@@ -141,6 +152,7 @@ const dataInformation = {
             'name': 'Ina',
             'code': 'ina',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 900
         },
@@ -148,6 +160,7 @@ const dataInformation = {
             'name': 'Fini',
             'code': 'fini',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 1050
         },
@@ -155,6 +168,7 @@ const dataInformation = {
             'name': 'Asmondai',
             'code': 'asmondai',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 1300
         },
@@ -162,6 +176,7 @@ const dataInformation = {
             'name': 'Danysa',
             'code': 'danysa',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 1550
         },
@@ -169,6 +184,7 @@ const dataInformation = {
             'name': 'Iseris',
             'code': 'iseris',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 1800
         },
@@ -176,6 +192,7 @@ const dataInformation = {
             'name': 'Belien',
             'code': 'belien',
             'merc': false,
+            'god': false,
             'spec': 2,
             'unlockStage': 2050
         },
@@ -183,6 +200,7 @@ const dataInformation = {
             'name': 'Sely',
             'code': 'sely',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 2300
         },
@@ -190,6 +208,7 @@ const dataInformation = {
             'name': 'Randal',
             'code': 'randal',
             'merc': false,
+            'god': false,
             'spec': 1,
             'unlockStage': 2550
         },
@@ -197,6 +216,7 @@ const dataInformation = {
             'name': 'Molly',
             'code': 'molly',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 2800
         },
@@ -204,6 +224,7 @@ const dataInformation = {
             'name': 'Layla',
             'code': 'layla',
             'merc': false,
+            'god': false,
             'spec': 2,
             'unlockStage': 3050
         },
@@ -211,6 +232,7 @@ const dataInformation = {
             'name': 'Joe',
             'code': 'joe',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 3300
         },
@@ -218,6 +240,7 @@ const dataInformation = {
             'name': 'Hongyu',
             'code': 'hongyu',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 3600
         },
@@ -225,6 +248,7 @@ const dataInformation = {
             'name': 'Amun',
             'code': 'amun',
             'merc': false,
+            'god': false,
             'spec': 0,
             'unlockStage': 3900
         },
@@ -232,55 +256,72 @@ const dataInformation = {
             'name': 'Panko',
             'code': 'panko',
             'merc': true,
+            'god': false,
             'spec': 1
         },
         {
             'name': 'Cirilo',
             'code': 'cirilo',
             'merc': true,
+            'god': false,
             'spec': 0
         },
         {
             'name': 'Vilon',
             'code': 'vilon',
             'merc': true,
+            'god': false,
             'spec': 0
         },
         {
             'name': 'Zelea',
             'code': 'zelea',
             'merc': true,
+            'god': false,
             'spec': 0
         },
         {
             'name': 'Yavo',
             'code': 'yavo',
             'merc': true,
+            'god': false,
             'spec': 2
         },
         {
             'name': 'Anzo',
             'code': 'anzo',
             'merc': true,
+            'god': false,
             'spec': 1
         },
         {
             'name': 'Zoruk',
             'code': 'zoruk',
             'merc': true,
+            'god': false,
             'spec': 2
         },
         {
             'name': 'Rickie',
             'code': 'rickie',
             'merc': true,
+            'god': false,
             'spec': 0
         },
         {
             'name': 'Jess',
             'code': 'jess',
             'merc': true,
+            'god': false,
             'spec': 0
+        },
+        {
+            'name': 'Ledra',
+            'code': 'ledra',
+            'merc': false,
+            'god': true,
+            'spec': 2,
+            'unlockStage': 0
         }
     ],
     'rarities' : [

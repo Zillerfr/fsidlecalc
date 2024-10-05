@@ -2,11 +2,25 @@ function rarityChange(id, value) {
     saveToStorage(id, value);
 }
 
+function handleKeyPressMaxStage(event) {
+    if (event.key === 'Enter') {
+        // Appel de la fonction souhaitée
+        updateCharacterList();
+    }
+}
+
 function updateCharacterList() {
     $(".custom-options").removeClass('show');
     var maxStage = $('#max-reached-stage').val();
     if (!maxStage) maxStage = 0;
     saveToStorage('max-reached-stage', maxStage);
+    selectCharacter(toDOMElement($('#character-selection')));
+}
+
+function characterSelection(checkbox) {
+    var checkedState = checkbox.prop('checked');
+    saveToStorage(checkbox.attr('id'), checkedState);
+    updateCharacterList()
 }
 
 function customSelectClick(select) {
@@ -48,11 +62,27 @@ function customOptionClick(option) {
 
 function selectCharacter(select) {
     $(".custom-options").removeClass('show');
+    $('.character-title').hide();
+    $('.character-gear').hide();    
     if (select.value > -1) {
-        $('.character-title').hide();
-        $('.character-gear').hide();
         $('#character-title-' + select.value).show();
         $('#character-gear-' + select.value).show();
+    } else if (select.value == -2) {
+        var maxStage = dataInput['max-reached-stage'];
+        $.each(dataInformation.characters, function (i, character) {
+            var selectionCheckId = "character-select-" + character.code;
+            if (character.god || character.merc) {
+                if (dataInput[selectionCheckId]) {
+                    $('#character-title-' + i).show();
+                    $('#character-gear-' + i).show();
+                }
+            } else {
+                if (character.unlockStage <= maxStage) {
+                    $('#character-title-' + i).show();
+                    $('#character-gear-' + i).show();
+                }
+            }
+        });
     } else {
         $('.character-title').show();
         $('.character-gear').show();

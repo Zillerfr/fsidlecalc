@@ -56,7 +56,7 @@
 						<div class="data-item-data-line-item-element">
 							<div>Échelon maximum atteint</div>
 							<div class="input-with-control">
-								<div class="input-holder"><input id="max-reached-stage"
+								<div class="input-holder"><input id="max-reached-stage" onkeydown="handleKeyPressMaxStage(event)"
 										class="controlled-input medium-input" type="number"></div>
 								<button class="button small-button" onclick="updateCharacterList()">Appliquer</button>
 							</div>
@@ -64,12 +64,24 @@
 					</div>
 				</div>
 			</div>
+			<div class="tab_item_wrap item-border tab_data active data">
+				<div class="data-title title-alone item-border title-with-input">
+					<div class="bold-title">Personnage(s) débloqués</div>
+				</div>
+				<div class="data-title title-alone item-border title-with-input vertical-control">
+					<div class="bold-title">Mercenaires</div>
+					<div class="data-title title-alone item-border title-with-input title-flex" id="mercenary-selection"></div>
+					<div class="bold-title">Dieux</div>
+					<div class="data-title title-alone item-border title-with-input title-flex" id="god-selection"></div>					
+				</div>				
+			</div>			
 			<div class="tab_item_wrap item-border tab_data active data" id="characters-box">
 				<div class="data-title title-alone item-border title-with-input">
-					<div class="bold-title">Personnage(s)</div>
+					<div class="bold-title">Liste des personnage(s)</div>
 					<div class="select_box small-select_box large-select_box">
 						<select id="character-selection" class="button_select" onChange="selectCharacter(this)">
-							<option value="-1">Tous les personnages</option>						
+							<option value="-1">Tous les personnages</option>
+							<option value="-2">Personnages débloqués</option>
 						</select>
 					</div>
 				</div>

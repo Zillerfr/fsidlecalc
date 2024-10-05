@@ -979,6 +979,10 @@ select {
   margin: 0;
 }
 
+.no-border {
+  border: none;
+}
+
 .vertical-control .controlled-input {
   border: none;
   width: 14px;

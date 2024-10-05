@@ -153,8 +153,7 @@ function loadFromStorage() {
 				if (!dataInput.hasOwnProperty(this.id) || dataInput[this.id] == '') {
 					completeUnknownValue(this.id);
 				}
-				if (this.classList.contains('class-for-checkbox-input')) {
-					// TODO : à compléter une fois les checkbox en place
+				if (this.classList.contains('character-select-box')) {
 					$(this).prop('checked', dataInput[this.id]);
 				} else if (this.classList.contains('select-input')) {
 					$(this).val(dataInput[this.id]);
@@ -187,6 +186,17 @@ function loadFromStorage() {
 	} else {
 		firstInit();
 	}
+}
+
+function isjQuery(obj) {
+    return obj instanceof jQuery;
+}
+
+function toDOMElement(jqObj) {
+    if (isjQuery(jqObj)) {
+        return jqObj.get(0); // ou jqObj[0]
+    }
+    return jqObj; // Si ce n'est pas un objet jQuery, le retourner tel quel
 }
 
 function valueUpdate(idObject, isPositive) {

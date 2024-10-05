@@ -185,6 +185,25 @@ function addItemBox(itemType, characterName) {
     return divBoxData;
 }
 
+function addCharacterSelect(characterCode, characterName, characterType) {
+    var characterSelectId = "character-select-" + characterCode;
+
+    // Character Select line
+    var divSelectLine = $('<div></div>').addClass('inline-checkbox no-border');
+
+    // Character Select Input
+
+    var selectInput = $('<input></input>');
+    selectInput.attr("type", "checkbox").addClass('character-select-box');
+    selectInput.attr("id", characterSelectId);
+    selectInput.attr("name", characterSelectId);
+    divSelectLine.append(selectInput);
+    var selectInputLabel = $('<label></label>').text(characterName);
+    divSelectLine.append(selectInputLabel);
+
+    $("#" + characterType + "-selection").append(divSelectLine);
+}
+
 function initializeCharactersSheet() {
     $charactersBox = $("#characters-box");
     $charactersSelect = $("#character-selection");
@@ -192,7 +211,7 @@ function initializeCharactersSheet() {
     $.each(dataInformation.characters, function (i, character) {
 
         var characterTitleId = "character-title-" + i;
-        var characterGearsId = "character-gear-" + i;
+        var characterGearsId = "character-gear-" + i;        
 
         // Character title
         var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone title-online-drop title-flex character-title').text(character.name);
@@ -214,6 +233,12 @@ function initializeCharactersSheet() {
             value: i,
             text : character.name 
         }));
+
+        // Add Select box
+        var characterType = "";
+        if (character.god) characterType = "god";
+        if (character.merc) characterType = "mercenary";
+        addCharacterSelect(character.code, character.name, characterType);
 
     });
 

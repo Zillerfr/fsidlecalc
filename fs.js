@@ -31,6 +31,11 @@
 
 		});
 
+		// checkbox character select
+		$('.character-select-box').on('click', function() {
+			characterSelection($(this));
+		});
+
 		/**
 		 * ==================================
 		 * Tabs management

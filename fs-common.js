@@ -86,6 +86,10 @@ function generateMinValues() {
 
 			});
 		}
+		if (character.god || character.merc) {
+			var selectId = 'character-select-' + charName;
+			minValues[selectId] = false;
+		}
 
 	 });
 	 minValues["max-reached-stage"] = 0;

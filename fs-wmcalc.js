@@ -59,13 +59,13 @@ function calculateDataWM() {
         armorMaxBoost  = armorMaxBoost  * charArmorBonus;
 
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0) {
-            dataWM.dataVMCurrent.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(healthBoost), vmEffectFormat(armorBoost), vmEffectFormat(healthBoost + armorBoost)]);
+            dataWM.dataVMCurrent.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(healthBoost), vmEffectFormat(armorBoost), vmEffectFormat(healthBoost + armorBoost)]);
         }        
         if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMax.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMax.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
         }
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0 || damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMix.push([i, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(damageMaxBoost), vmEffectFormat(healthBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthBoost + armorBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMix.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(damageMaxBoost), vmEffectFormat(healthBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthBoost + armorBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
         }
     });
 
@@ -94,7 +94,15 @@ function initDataTable() {
             url: 'datatables_fr-FR.json',
         },
         columns: [
-            { title: '' },
+            { 
+                title: '',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                    }
+                    return data;
+                }
+            },
             { title: 'Personnage' },
             { title: 'Spécialité' },
             { title: 'Dégâts' },
@@ -111,7 +119,15 @@ function initDataTable() {
             url: 'datatables_fr-FR.json',
         },
         columns: [
-            { title: '' },
+            { 
+                title: '',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                    }
+                    return data;
+                }
+            },
             { title: 'Personnage' },
             { title: 'Spécialité' },
             { title: 'Dégâts' },
@@ -128,7 +144,15 @@ function initDataTable() {
             url: 'datatables_fr-FR.json',
         },
         columns: [
-            { title: '' },
+            { 
+                title: '',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                    }
+                    return data;
+                }
+            },
             { title: 'Nom' },
             { title: 'Spéc' },
             { title: 'Dégâts' },

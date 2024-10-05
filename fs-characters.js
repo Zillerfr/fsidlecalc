@@ -189,15 +189,22 @@ function addCharacterSelect(characterCode, characterName, characterType) {
     var characterSelectId = "character-select-" + characterCode;
 
     // Character Select line
-    var divSelectLine = $('<div></div>').addClass('inline-checkbox no-border');
+    var divSelectLine = $('<div></div>');
 
     // Character Select Input
 
+    var inputLine = $('<div></div>').addClass('inline-checkbox no-border');
     var selectInput = $('<input></input>');
     selectInput.attr("type", "checkbox").addClass('character-select-box');
     selectInput.attr("id", characterSelectId);
     selectInput.attr("name", characterSelectId);
-    divSelectLine.append(selectInput);
+    inputLine.append(selectInput);
+    var divImgLine = $('<div></div>');
+    var imgChar = $('<img></img>').addClass('char-pic');
+    imgChar.attr('src', 'assets/' + characterCode + '.webp');
+    divImgLine.append(imgChar);
+    inputLine.append(divImgLine);
+    divSelectLine.append(inputLine);
     var selectInputLabel = $('<label></label>').text(characterName);
     divSelectLine.append(selectInputLabel);
 
@@ -214,7 +221,14 @@ function initializeCharactersSheet() {
         var characterGearsId = "character-gear-" + i;        
 
         // Character title
-        var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone title-online-drop title-flex character-title').text(character.name);
+        var divLineTitle = $('<div id="' + characterTitleId + '"></div>').addClass('data-title title-alone title-online-drop title-flex character-title');
+        var divImgLine = $('<div></div>');
+        var imgChar = $('<img></img>').addClass('char-pic');
+        imgChar.attr('src', 'assets/' + character.code + '.webp');
+        divImgLine.append(imgChar);
+        divLineTitle.append(divImgLine);
+        var divCharName = $('<div></div>').addClass('character-name').text(character.name);
+        divLineTitle.append(divCharName);
         //$charactersBox.append(divLineTitle);
         // Character Data Box
         var divLineBox = $('<div id="' + characterGearsId + '"></div>').addClass('data-category-title item-border character-gear');
@@ -244,3 +258,6 @@ function initializeCharactersSheet() {
 
 
 }
+
+
+// récup avatars : https://firestone-idle-rpg.fandom.com/wiki/Avatar#Hero_avatars

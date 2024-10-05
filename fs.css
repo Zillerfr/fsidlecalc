@@ -387,6 +387,10 @@ h1.main-title {
 	font-weight: 600;
 }
 
+.char-pic {
+  max-height: 40px;
+}
+
 .title-flex {
 	display: flex;
 	flex-direction: row;
@@ -477,6 +481,11 @@ button:hover, .button:hover {
 .character-title {
   margin-top: 0;
   border-bottom: solid 1px var(--zone-border-color);
+  justify-content: space-around;
+}
+
+.character-title .character-name  {
+  align-self: center;
 }
 
 /* loading spinner */

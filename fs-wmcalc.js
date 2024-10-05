@@ -28,7 +28,9 @@ function calculateDataWM() {
             var jewelLevelId  = character.code + '-jewels-' + jewel.code + '-level';
             var jewelRarityId = character.code + '-jewels-' + jewel.code + '-rarity';
             var jewelLevel  = dataInput[jewelLevelId];
+            if (!jewelLevel) jewelLevel = 0;
             var jewelRarity = dataInput[jewelRarityId];
+            if (!jewelRarity) jewelRarity = 0;
             var jewelMaxLevel = dataInformation.rarities[jewelRarity].maxLevel;
 
             var jewelDamageMultipler = jewel.damage;

@@ -12,6 +12,9 @@ function handleKeyPress(event) {
             case "void-crystal" :
                 updateGearList();
                 break;
+            case "soul-shard" :
+                updateStoneList();
+                break;
         }
     }
 }
@@ -21,7 +24,13 @@ function updateGearList() {
     if (!voidCrystal) voidCrystal = 0;
     saveToStorage('void-crystal', voidCrystal);
     initGearUpgrade()
+}
 
+function updateStoneList() {
+    var soulShard = $('#soul-shard').val();
+    if (!soulShard) soulShard = 0;
+    saveToStorage('soul-shard', soulShard);
+    initStoneUpgrade()
 }
 
 function updateCharacterList() {

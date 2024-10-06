@@ -65,10 +65,11 @@
 					case "tab_data" :
 						break;
 					case "tab_wmpower" :
-						initWMPower()
+						initWMPower();
 						break;
 					case "tab_gearupgrade" :
-						initGearUpgrade()
+						initGearUpgrade();
+						initStoneUpgrade();
 						break;
 					default:
 						break;

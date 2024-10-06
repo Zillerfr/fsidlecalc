@@ -341,7 +341,7 @@ const dataInformation = {
                 'wisdom' : 0,
                 'faith' : 0,
                 'charisma' : 0
-            },
+            }
         },
         {
             'name': 'Ordinaire',
@@ -353,7 +353,13 @@ const dataInformation = {
                 'ring' : 2.5,
                 'relic' : 8.5
             },
-            'baseEffectJewel' : 200
+            'baseEffectJewel' : 200,
+            'baseEffectSoulstone' : {
+                'tier1' : 4,
+                'wisdom' : 2.5,
+                'faith' : 2,
+                'charisma' : 8.5
+            }
         },
         {
             'name': 'Extraordinaire',
@@ -365,7 +371,13 @@ const dataInformation = {
                 'ring' : 5.5,
                 'relic' : 23.5
             },
-            'baseEffectJewel' : 400
+            'baseEffectJewel' : 400,
+            'baseEffectSoulstone' : {
+                'tier1' : 10,
+                'wisdom' : 5.5,
+                'faith' : 4,
+                'charisma' : 23.5
+            }
         },
         {
             'name': 'Rare',
@@ -377,7 +389,13 @@ const dataInformation = {
                 'ring' : 15,
                 'relic' : 68.5
             },
-            'baseEffectJewel' : 800
+            'baseEffectJewel' : 800,
+            'baseEffectSoulstone' : {
+                'tier1' : 28,
+                'wisdom' : 15,
+                'faith' : 10,
+                'charisma' : 68.5
+            }
         },
         {
             'name': 'Épique',
@@ -389,7 +407,13 @@ const dataInformation = {
                 'ring' : 42,
                 'relic' : 203.5
             },
-            'baseEffectJewel' : 1600
+            'baseEffectJewel' : 1600,
+            'baseEffectSoulstone' : {
+                'tier1' : 88,
+                'wisdom' : 42,
+                'faith' : 28,
+                'charisma' : 203.5
+            }
         },
         {
             'name': 'Légendaire',
@@ -401,7 +425,13 @@ const dataInformation = {
                 'ring' : 123,
                 'relic' : 608.5
             },
-            'baseEffectJewel' : 3200
+            'baseEffectJewel' : 3200,
+            'baseEffectSoulstone' : {
+                'tier1' : 244,
+                'wisdom' : 123,
+                'faith' : 82,
+                'charisma' : 608.5
+            }
         },
         {
             'name': 'Mythique',
@@ -413,7 +443,13 @@ const dataInformation = {
                 'ring' : 366,
                 'relic' : 1823.5
             },
-            'baseEffectJewel' : 6400
+            'baseEffectJewel' : 6400,
+            'baseEffectSoulstone' : {
+                'tier1' : 730,
+                'wisdom' : 366,
+                'faith' : 244,
+                'charisma' : 1823.5
+            }
         },
         {
             'name': 'Titan',
@@ -425,7 +461,13 @@ const dataInformation = {
                 'ring' : 1095,
                 'relic' : 5468.5
             },
-            'baseEffectJewel' : 12800
+            'baseEffectJewel' : 12800,
+            'baseEffectSoulstone' : {
+                'tier1' : 2188,
+                'wisdom' : 1095,
+                'faith' : 730,
+                'charisma' : 5468.5
+            }
         }
     ],
     'gears' : [
@@ -597,6 +639,7 @@ const dataInformation = {
             'tier': 1,
             'position': 1,
             'rarityUpgrade': 'tier1',
+            'effect': 'Dégâts perso',
             'damage': 1,
             'health': 0,
             'resistance': 0,
@@ -609,6 +652,7 @@ const dataInformation = {
             'tier': 1,
             'position': 2,
             'rarityUpgrade': 'tier1',
+            'effect': 'Santé perso',
             'damage': 0,
             'health': 1,
             'resistance': 0,
@@ -621,6 +665,7 @@ const dataInformation = {
             'tier': 1,
             'position': 3,
             'rarityUpgrade': 'tier1',
+            'effect': 'Résistance perso',
             'damage': 0,
             'health': 0,
             'resistance': 1,
@@ -633,6 +678,7 @@ const dataInformation = {
             'tier': 2,
             'position': 1,
             'rarityUpgrade': 'wisdom',
+            'effect': 'Gains or',
             'damage': 0,
             'health': 0,
             'resistance': 0,
@@ -645,6 +691,7 @@ const dataInformation = {
             'tier': 2,
             'position': 2,
             'rarityUpgrade': 'faith',
+            'effect': 'Gains Firestones',
             'damage': 0,
             'health': 0,
             'resistance': 0,
@@ -657,6 +704,7 @@ const dataInformation = {
             'tier': 2,
             'position': 3,
             'rarityUpgrade': 'charisma',
+            'effect': 'Dégâts Santé Résistance tous',
             'damage': 1,
             'health': 1,
             'resistance': 1,
@@ -670,12 +718,12 @@ const dataInformation = {
         'tier2' : [60, 120, 240, 480, 960, 1920, 3840, 7680, 11520, 17280, 25920, 38880, 77760, 155520],
         'tier3' : [120, 240, 480, 960, 1920, 3840, 7680, 15360, 23040, 34560, 51840, 77760, 155520, 311040]
     },
-    'jewelUpgradeEffect' : [0, 150, 200, 300, 400, 600, 800, 1200, 1600, 2200, 3200, 4800, 6400, 9600, 12800],
+    'jewelUpgradeEffect' : [1, 150, 200, 300, 400, 600, 800, 1200, 1600, 2200, 3200, 4800, 6400, 9600, 12800],
     'jewelUpgradeCost' : {
         'tier1' : [30, 60, 120, 240, 480, 960, 1920, 3840, 5760, 8640, 12960, 19440, 38880, 77760],
         'tier2' : [60, 120, 240, 480, 960, 1920, 3840, 7680, 11520, 17280, 25920, 38880, 77760, 155520]
     },
-    'soulStoneUpgradeEffect' : [0, 150, 200, 300, 400, 600, 800, 1200, 1600, 2200, 3200, 4800, 6400, 9600, 12800],
+    'soulStoneUpgradeEffect' : [1, 2, 4, 8, 15, 30, 60, 120, 250, 500, 1000, 2000, 4000, 8000, 16000],
     'soulStoneUpgradeCost' : {
         'tier1' : [30, 60, 120, 240, 480, 960, 1920, 3840, 5760, 8640, 12960, 19440, 38880, 77760],
         'tier2' : [120, 240, 480, 960, 1920, 3840, 7680, 15360, 23040, 34560, 51840, 77760, 155520, 311040]

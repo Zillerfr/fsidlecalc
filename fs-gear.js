@@ -65,7 +65,7 @@ function calculateDataGear() {
             }
 
             if (upgradeCost <= maxVoidCrystal && upgradeCost > 0) {
-                dataWM.dataVMGear.push([character.code, character.name, [item.code, dataInformation.rarities[itemRarity].code], item.name, itemLevel, itemMaxLevel,
+                dataWM.dataVMGear.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
                     item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), numberFormat(upgradeRating)]);
             }
 
@@ -135,25 +135,23 @@ function initGearUpgrade() {
         },
         columns: [
             { 
-                title: '',
+                title: 'Personnage',
                 render: function (data, type) {
                     if (type === 'display') {
-                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="assets/' + data[0] + '.webp"></img><span>' + data[1]+ '</span></div>';
                     }
                     return data;
                 }
             },
-            { title: 'Personnage' },
             { 
-                title: '',
+                title: 'Objet',
                 render: function (data, type) {
                     if (type === 'display') {
-                        return '<img class="item-svg char-pic color-' + data[1] + '" src="assets/' + data[0] + '.svg"></img>';
+                        return '<div class="data-item-data-line-values"><img class="item-svg char-pic color-' + data[1] + '" src="assets/' + data[0] + '.svg"></img><span>' + data[2]+ '</span></div>';
                     }
                     return data;
                 }
             },            
-            { title: 'Objet' },
             { title: 'Niveau Objet' },
             { title: 'Niveau Max Objet' },
             { title: 'Effet' },

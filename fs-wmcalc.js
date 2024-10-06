@@ -53,13 +53,13 @@ function calculateDataWM() {
         armorMaxBoost  = armorMaxBoost  * charArmorBonus;
 
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0) {
-            dataWM.dataVMCurrent.push([character.code, character.name, specList[character.spec].name, numberFormat(damageBoost), numberFormat(healthBoost), numberFormat(armorBoost), numberFormat(healthBoost + armorBoost)]);
+            dataWM.dataVMCurrent.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageBoost), numberFormat(healthBoost), numberFormat(armorBoost), numberFormat(healthBoost + armorBoost)]);
         }        
         if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMax.push([character.code, character.name, specList[character.spec].name, numberFormat(damageMaxBoost), numberFormat(healthMaxBoost), numberFormat(armorMaxBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMax.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageMaxBoost), numberFormat(healthMaxBoost), numberFormat(armorMaxBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0 || damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMix.push([character.code, character.name, specList[character.spec].name, numberFormat(damageBoost), numberFormat(damageMaxBoost), numberFormat(healthBoost), numberFormat(healthMaxBoost), numberFormat(armorBoost), numberFormat(armorMaxBoost), numberFormat(healthBoost + armorBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMix.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageBoost), numberFormat(damageMaxBoost), numberFormat(healthBoost), numberFormat(healthMaxBoost), numberFormat(armorBoost), numberFormat(armorMaxBoost), numberFormat(healthBoost + armorBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
     });
 
@@ -89,15 +89,14 @@ function initWMPower() {
         },
         columns: [
             { 
-                title: '',
+                title: 'Personnage',
                 render: function (data, type) {
                     if (type === 'display') {
-                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="assets/' + data[0] + '.webp"></img><span>' + data[1]+ '</span></div>';
                     }
                     return data;
                 }
             },
-            { title: 'Personnage' },
             { title: 'Spécialité' },
             { title: 'Dégâts' },
             { title: 'Santé' },
@@ -114,15 +113,14 @@ function initWMPower() {
         },
         columns: [
             { 
-                title: '',
+                title: 'Personnage',
                 render: function (data, type) {
                     if (type === 'display') {
-                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="assets/' + data[0] + '.webp"></img><span>' + data[1]+ '</span></div>';
                     }
                     return data;
                 }
             },
-            { title: 'Personnage' },
             { title: 'Spécialité' },
             { title: 'Dégâts' },
             { title: 'Santé' },
@@ -139,15 +137,14 @@ function initWMPower() {
         },
         columns: [
             { 
-                title: '',
+                title: 'Personnage',
                 render: function (data, type) {
                     if (type === 'display') {
-                        return '<img class="char-pic" src="assets/' + data + '.webp"></img>';
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="assets/' + data[0] + '.webp"></img><span>' + data[1]+ '</span></div>';
                     }
                     return data;
                 }
             },
-            { title: 'Nom' },
             { title: 'Spéc' },
             { title: 'Dégâts' },
             { title: 'Dégâts Pot.' },

@@ -488,6 +488,10 @@ button:hover, .button:hover {
   align-self: center;
 }
 
+#characters-box {
+  margin-bottom: 300px;
+}
+
 /* loading spinner */
 
 .spinner {

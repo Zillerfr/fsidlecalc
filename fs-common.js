@@ -230,3 +230,8 @@ function valueUpdate(idObject, isPositive) {
 	saveToStorage(idObject, newValue);
 	$("#" + idObject).val(newValue);
 }
+
+function numberFormat(number) {
+    const numberFormatter = new Intl.NumberFormat(navigator.languages[0], { maximumFractionDigits: 0, useGrouping: true });
+	return numberFormatter.format(number);
+}

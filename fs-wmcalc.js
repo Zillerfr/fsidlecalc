@@ -1,9 +1,3 @@
-function vmEffectFormat(number) {
-    const numberFormatter = new Intl.NumberFormat(navigator.languages[0], { maximumFractionDigits: 0, useGrouping: true });
-	return numberFormatter.format(number);
-}
-
-
 function calculateDataWM() {
 
     var dataWM = {
@@ -59,13 +53,13 @@ function calculateDataWM() {
         armorMaxBoost  = armorMaxBoost  * charArmorBonus;
 
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0) {
-            dataWM.dataVMCurrent.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(healthBoost), vmEffectFormat(armorBoost), vmEffectFormat(healthBoost + armorBoost)]);
+            dataWM.dataVMCurrent.push([character.code, character.name, specList[character.spec].name, numberFormat(damageBoost), numberFormat(healthBoost), numberFormat(armorBoost), numberFormat(healthBoost + armorBoost)]);
         }        
         if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMax.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageMaxBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMax.push([character.code, character.name, specList[character.spec].name, numberFormat(damageMaxBoost), numberFormat(healthMaxBoost), numberFormat(armorMaxBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0 || damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMix.push([character.code, character.name, specList[character.spec].name, vmEffectFormat(damageBoost), vmEffectFormat(damageMaxBoost), vmEffectFormat(healthBoost), vmEffectFormat(healthMaxBoost), vmEffectFormat(armorBoost), vmEffectFormat(armorMaxBoost), vmEffectFormat(healthBoost + armorBoost), vmEffectFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMix.push([character.code, character.name, specList[character.spec].name, numberFormat(damageBoost), numberFormat(damageMaxBoost), numberFormat(healthBoost), numberFormat(healthMaxBoost), numberFormat(armorBoost), numberFormat(armorMaxBoost), numberFormat(healthBoost + armorBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
     });
 
@@ -73,7 +67,7 @@ function calculateDataWM() {
 
 }
 
-function initDataTable() {
+function initWMPower() {
 
     var dataWM = calculateDataWM();
 
@@ -110,7 +104,7 @@ function initDataTable() {
             { title: 'Résistance' },
             { title: 'Santé + Résistance' }
         ],
-        pageLength: 50,
+        pageLength: 10,
         data: dataWM.dataVMCurrent
     } );
 
@@ -135,7 +129,7 @@ function initDataTable() {
             { title: 'Résistance' },
             { title: 'Santé + Résistance' }
         ],
-        pageLength: 50,
+        pageLength: 10,
         data: dataWM.dataVMMax
     } );
 
@@ -164,7 +158,7 @@ function initDataTable() {
             { title: 'Santé/Résist' },
             { title: 'Santé/Résist Potentiel' }
         ],
-        pageLength: 50,
+        pageLength: 10,
         data: dataWM.dataVMMix
     } );
 }

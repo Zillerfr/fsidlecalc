@@ -44,7 +44,7 @@
 			<ul>
 				<li data-tabs="tab_data" class="active">Vos Informations</li>
 				<li data-tabs="tab_wmpower">Equipage Machines de Guerre</li>
-				<li data-tabs="tab_todo2">A voir 2</li>
+				<li data-tabs="tab_gearupgrade">Améliorations d'équipements</li>
 				<li data-tabs="tab_settings">Gestion des données</li>
 			</ul>
 		</div>
@@ -103,11 +103,14 @@
 				</div>
 				<table id="wmTablePotential" class="display"></table>				
 			</div>
-			<div class="tab_item_wrap item-border tab_todo2">
-				<div class="main-title">A voir 2</div>
+			<div class="tab_item_wrap item-border tab_gearupgrade">
+				<div class="main-title">Améliorations d'équipements</div>
 			</div>
-			<div class="tab_item_wrap item-border tab_todo2">
-				En cours...
+			<div class="tab_item_wrap item-border tab_gearupgrade">
+				<div class="data-title title-alone item-border title-with-input">
+					<div class="bold-title">Equipements</div>
+				</div>
+				<table id="wmTableGear" class="display"></table>
 			</div>
 			<div class="tab_item_wrap item-border tab_settings">
 				<div class="main-data">
@@ -154,6 +157,7 @@
 <script src="fs-input.js"></script>
 <script src="fs-characters.js"></script>
 <script src="fs-wmcalc.js"></script>
+<script src="fs-gear.js"></script>
 <script src="fs.js"></script>
 
 </html>

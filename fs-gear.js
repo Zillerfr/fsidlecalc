@@ -16,7 +16,8 @@ function calculateDataGear() {
         var armorMaxBoost  = 0;
         var charDamageBonus = 1 + (specList[character.spec].wmStatBonus.damage / 100);
         var charHealthBonus = 1 + (specList[character.spec].wmStatBonus.health / 100);
-        var charArmorBonus  = 1 + (specList[character.spec].wmStatBonus.armor  / 100);        
+        var charArmorBonus  = 1 + (specList[character.spec].wmStatBonus.armor  / 100);
+        var maxVoidCrystal = dataInput['void-crystal'];
 
         // Character Gear
         $.each(dataInformation['gears'], function (i, item) {     
@@ -63,10 +64,10 @@ function calculateDataGear() {
 
             }
 
-
-            dataWM.dataVMGear.push([character.code, character.name, [item.code, dataInformation.rarities[itemRarity].code], item.name, itemLevel, itemMaxLevel,
-                item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), numberFormat(upgradeRating)]);
-
+            if (upgradeCost <= maxVoidCrystal && upgradeCost > 0) {
+                dataWM.dataVMGear.push([character.code, character.name, [item.code, dataInformation.rarities[itemRarity].code], item.name, itemLevel, itemMaxLevel,
+                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), numberFormat(upgradeRating)]);
+            }
 
 
         });

@@ -56,7 +56,7 @@
 						<div class="data-item-data-line-item-element">
 							<div>Échelon maximum atteint</div>
 							<div class="input-with-control">
-								<div class="input-holder"><input id="max-reached-stage" onkeydown="handleKeyPressMaxStage(event)"
+								<div class="input-holder"><input id="max-reached-stage" onkeydown="handleKeyPress(event)"
 										class="controlled-input medium-input" type="number"></div>
 								<button class="button small-button" onclick="updateCharacterList()">Appliquer</button>
 							</div>
@@ -109,6 +109,16 @@
 			<div class="tab_item_wrap item-border tab_gearupgrade">
 				<div class="data-title title-alone item-border title-with-input">
 					<div class="bold-title">Equipements</div>
+					<div class="ascension-info">
+						<div class="data-item-data-line-item-element">
+							<div>Cristaux du vide</div>
+							<div class="input-with-control">
+								<div class="input-holder"><input id="void-crystal" onkeydown="handleKeyPress(event)"
+										class="controlled-input medium-input" type="number"></div>
+								<button class="button small-button" onclick="updateGearList()">Appliquer</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				<table id="wmTableGear" class="display"></table>
 			</div>

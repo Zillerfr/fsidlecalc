@@ -2,11 +2,26 @@ function rarityChange(id, value) {
     saveToStorage(id, value);
 }
 
-function handleKeyPressMaxStage(event) {
+function handleKeyPress(event) {
     if (event.key === 'Enter') {
         // Appel de la fonction souhaitée
-        updateCharacterList();
+        switch (event.target.id) {
+            case "max-reached-stage" :
+                updateCharacterList();
+                break;
+            case "void-crystal" :
+                updateGearList();
+                break;
+        }
     }
+}
+
+function updateGearList() {
+    var voidCrystal = $('#void-crystal').val();
+    if (!voidCrystal) voidCrystal = 0;
+    saveToStorage('void-crystal', voidCrystal);
+    initGearUpgrade()
+
 }
 
 function updateCharacterList() {

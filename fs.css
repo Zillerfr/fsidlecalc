@@ -492,6 +492,11 @@ button:hover, .button:hover {
   margin-bottom: 300px;
 }
 
+.data-title > .ascension-info {
+  white-space: normal;
+  padding: 10px;
+}
+
 /* loading spinner */
 
 .spinner {

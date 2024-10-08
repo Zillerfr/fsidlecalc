@@ -52,7 +52,8 @@ function calculateDataGear() {
 
             if (upgradeCost <= maxVoidCrystal && upgradeCost > 0) {
                 dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
-                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), numberFormat(upgradeRating)]);
+                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost),
+                    numberFormat(upgradeRating), itemLevelId]);
             }
 
 
@@ -98,7 +99,17 @@ function initGearUpgrade() {
             { title: 'Boost Prochain Niveau' },
             { title: 'Gain Prochain Niveau' },
             { title: 'Coût Amélioration' },
-            { title: 'Valeur Amélioration' }
+            { title: 'Valeur Amélioration' },
+            { 
+                title: 'Action',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return '<button class="button small-button btn-plus" data-id="' + data + '">Upgrade</button>';
+                    }
+                    return data;
+                }
+            }
+
         ],
         pageLength: 10,
         data: dataWM
@@ -161,7 +172,8 @@ function calculateDataStone() {
 
             if (upgradeCost <= maxSoulShard && upgradeCost > 0) {
                 dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
-                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), numberFormat(upgradeRating)]);
+                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
+                    numberFormat(upgradeRating), itemLevelId]);
             }
 
 
@@ -207,9 +219,41 @@ function initStoneUpgrade() {
             { title: 'Boost Prochain Niveau' },
             { title: 'Gain Prochain Niveau' },
             { title: 'Coût Amélioration' },
-            { title: 'Valeur Amélioration' }
+            { title: 'Valeur Amélioration' },
+            { 
+                title: 'Action',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return '<button class="button small-button btn-plus" data-id="' + data + '">Upgrade</button>';
+                    }
+                    return data;
+                }
+            }
         ],
         pageLength: 10,
         data: dataWM
     } );   
+}
+
+$('body').on('click', '.btn-plus', function() {
+    var id = $(this).data('id');
+    incrementValue(id); // Passez l'ID ou une autre valeur en paramètre
+});
+
+function incrementValue(itemLevelId) {
+    var itemLevel = dataInput[itemLevelId];
+    var itemRarityId = itemLevelId.replace("-level", "-rarity");
+    var itemRarity = dataInput[itemRarityId];
+    var rarityMaxLevel = dataInformation.rarities[parseInt(itemRarity)].maxLevel
+
+    if (itemLevel < rarityMaxLevel) {
+        saveToStorage(itemLevelId, itemLevel + 1);
+        if (itemLevelId.includes('-gears-')) {
+            $('#' + itemLevelId).val(itemLevel + 1);
+            initGearUpgrade();
+        } else if (itemLevelId.includes('-soulstones-')) {
+            initStoneUpgrade();
+            $('#' + itemLevelId).val(itemLevel + 1);
+        }
+    }
 }

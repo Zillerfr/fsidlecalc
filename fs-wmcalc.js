@@ -37,12 +37,14 @@ function calculateDataWM() {
             var jewelEffect = jewelRarityEffect + jewelUpgradeEffect
             var jewelMaxEffect = jewelRarityEffect + jewelMaxUpgradeEffect
 
-            damageBoost += jewelDamageMultipler * jewelEffect;
-            healthBoost += jewelHealthMultipler * jewelEffect;
-            armorBoost  += jewelArmorMultipler  * jewelEffect;
-            damageMaxBoost += jewelDamageMultipler * jewelMaxEffect;
-            healthMaxBoost += jewelHealthMultipler * jewelMaxEffect;
-            armorMaxBoost  += jewelArmorMultipler  * jewelMaxEffect;
+            if (jewelRarity > 0) {
+                damageBoost += jewelDamageMultipler * jewelEffect;
+                healthBoost += jewelHealthMultipler * jewelEffect;
+                armorBoost  += jewelArmorMultipler  * jewelEffect;
+                damageMaxBoost += jewelDamageMultipler * jewelMaxEffect;
+                healthMaxBoost += jewelHealthMultipler * jewelMaxEffect;
+                armorMaxBoost  += jewelArmorMultipler  * jewelMaxEffect;
+            }
         });
 
         damageBoost = damageBoost * charDamageBonus;

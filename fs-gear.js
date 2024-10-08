@@ -16,46 +16,48 @@ function calculateDataGear() {
             var itemMaxLevel = dataInformation.rarities[itemRarity].maxLevel;
             var itemTier = 'tier' + item.tier;
  
-            var itemUpgradeEffect = dataInformation.gearUpgradeEffect[itemLevel];
-
-            var itemRarityEffect = 0;
-            if (item.code === 'ring') {
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear.ring;
-            } else if (item.code === 'relic') {
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear.relic;
-            } else {
-                
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear[itemTier];
-            }
-
-            var itemBoost = 0;
             if (itemRarity > 0) {
-                itemBoost = (itemRarityEffect * itemUpgradeEffect - 1) * 100;
+
+                var itemUpgradeEffect = dataInformation.gearUpgradeEffect[itemLevel];
+
+                var itemRarityEffect = 0;
+                if (item.code === 'ring') {
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear.ring;
+                } else if (item.code === 'relic') {
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear.relic;
+                } else {
+                    
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectGear[itemTier];
+                }
+
+                var itemBoost = 0;
+                if (itemRarity > 0) {
+                    itemBoost = (itemRarityEffect * itemUpgradeEffect - 1) * 100;
+                }
+
+                var itemNextUpgradeEffect = 0;
+                var itemBoostNextLevel = 0;
+                var itemUpgradeNextLevel = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    itemNextUpgradeEffect = dataInformation.gearUpgradeEffect[itemLevel + 1];
+                    itemBoostNextLevel = (itemRarityEffect * itemNextUpgradeEffect - 1) * 100;
+                    itemUpgradeNextLevel = itemBoostNextLevel - itemBoost;
+                }
+
+                var upgradeCost = 0;
+                var upgradeRating = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    upgradeCost = dataInformation.gearUpgradeCost[itemTier][itemLevel];
+                    upgradeRating = itemUpgradeNextLevel / upgradeCost;
+
+                }
+
+                if (upgradeCost <= maxVoidCrystal && upgradeCost > 0) {
+                    dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
+                        item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost),
+                        numberFormat(upgradeRating), itemLevelId]);
+                }
             }
-
-            var itemNextUpgradeEffect = 0;
-            var itemBoostNextLevel = 0;
-            var itemUpgradeNextLevel = 0;
-            if (itemLevel < itemMaxLevel && itemRarity > 0) {
-                itemNextUpgradeEffect = dataInformation.gearUpgradeEffect[itemLevel + 1];
-                itemBoostNextLevel = (itemRarityEffect * itemNextUpgradeEffect - 1) * 100;
-                itemUpgradeNextLevel = itemBoostNextLevel - itemBoost;
-            }
-
-            var upgradeCost = 0;
-            var upgradeRating = 0;
-            if (itemLevel < itemMaxLevel && itemRarity > 0) {
-                upgradeCost = dataInformation.gearUpgradeCost[itemTier][itemLevel];
-                upgradeRating = itemUpgradeNextLevel / upgradeCost;
-
-            }
-
-            if (upgradeCost <= maxVoidCrystal && upgradeCost > 0) {
-                dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
-                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost),
-                    numberFormat(upgradeRating), itemLevelId]);
-            }
-
 
         });
     });
@@ -134,47 +136,51 @@ function calculateDataStone() {
             var itemMaxLevel = dataInformation.rarities[itemRarity].maxLevel;
             var itemTier = 'tier' + item.tier;
  
-            var itemUpgradeEffect = dataInformation.soulStoneUpgradeEffect[itemLevel];
-
-            var itemRarityEffect = 0;
-            if (item.code === 'wisdom') {
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.wisdom;
-            } else if (item.code === 'faith') {
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.faith;
-            } else if (item.code === 'charisma') {
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.charisma;
-            } else {
-                
-                itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone[itemTier];
-            }
-
-            var itemBoost = 0;
             if (itemRarity > 0) {
-                itemBoost = (itemRarityEffect * itemUpgradeEffect) * 100;
+                
+                var itemUpgradeEffect = dataInformation.soulStoneUpgradeEffect[itemLevel];
+    
+                var itemRarityEffect = 0;
+                if (item.code === 'wisdom') {
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.wisdom;
+                } else if (item.code === 'faith') {
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.faith;
+                } else if (item.code === 'charisma') {
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone.charisma;
+                } else {
+                    
+                    itemRarityEffect  = dataInformation.rarities[itemRarity].baseEffectSoulstone[itemTier];
+                }
+    
+                var itemBoost = 0;
+                if (itemRarity > 0) {
+                    itemBoost = (itemRarityEffect * itemUpgradeEffect) * 100;
+                }
+    
+                var itemNextUpgradeEffect = 0;
+                var itemBoostNextLevel = 0;
+                var itemUpgradeNextLevel = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    itemNextUpgradeEffect = dataInformation.soulStoneUpgradeEffect[itemLevel + 1];
+                    itemBoostNextLevel = (itemRarityEffect * itemNextUpgradeEffect) * 100;
+                    itemUpgradeNextLevel = itemBoostNextLevel - itemBoost;
+                }
+    
+                var upgradeCost = 0;
+                var upgradeRating = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    upgradeCost = dataInformation.soulStoneUpgradeCost[itemTier][itemLevel];
+                    upgradeRating = itemUpgradeNextLevel / upgradeCost;
+    
+                }
+    
+                if (upgradeCost <= maxSoulShard && upgradeCost > 0) {
+                    dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
+                        item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
+                        numberFormat(upgradeRating), itemLevelId]);
+                }
             }
 
-            var itemNextUpgradeEffect = 0;
-            var itemBoostNextLevel = 0;
-            var itemUpgradeNextLevel = 0;
-            if (itemLevel < itemMaxLevel && itemRarity > 0) {
-                itemNextUpgradeEffect = dataInformation.soulStoneUpgradeEffect[itemLevel + 1];
-                itemBoostNextLevel = (itemRarityEffect * itemNextUpgradeEffect) * 100;
-                itemUpgradeNextLevel = itemBoostNextLevel - itemBoost;
-            }
-
-            var upgradeCost = 0;
-            var upgradeRating = 0;
-            if (itemLevel < itemMaxLevel && itemRarity > 0) {
-                upgradeCost = dataInformation.soulStoneUpgradeCost[itemTier][itemLevel];
-                upgradeRating = itemUpgradeNextLevel / upgradeCost;
-
-            }
-
-            if (upgradeCost <= maxSoulShard && upgradeCost > 0) {
-                dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
-                    item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
-                    numberFormat(upgradeRating), itemLevelId]);
-            }
 
 
         });

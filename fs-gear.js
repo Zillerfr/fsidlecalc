@@ -114,6 +114,7 @@ function initGearUpgrade() {
 
         ],
         pageLength: 10,
+        responsive: true,
         data: dataWM
     } );   
 }
@@ -237,6 +238,7 @@ function initStoneUpgrade() {
             }
         ],
         pageLength: 10,
+        responsive: true,        
         data: dataWM
     } );   
 }
@@ -349,6 +351,7 @@ function initJewelUpgrade() {
             }
         ],
         pageLength: 10,
+        responsive: true,        
         data: dataWM
     } );   
 }

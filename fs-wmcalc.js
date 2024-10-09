@@ -106,6 +106,7 @@ function initWMPower() {
             { title: 'Santé + Résistance' }
         ],
         pageLength: 10,
+        responsive: true,        
         data: dataWM.dataVMCurrent
     } );
 
@@ -130,6 +131,7 @@ function initWMPower() {
             { title: 'Santé + Résistance' }
         ],
         pageLength: 10,
+        responsive: true,        
         data: dataWM.dataVMMax
     } );
 
@@ -158,6 +160,7 @@ function initWMPower() {
             { title: 'Santé/Résist Potentiel' }
         ],
         pageLength: 10,
+        responsive: true,        
         data: dataWM.dataVMMix
     } );
 }

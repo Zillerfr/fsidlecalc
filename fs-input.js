@@ -15,6 +15,9 @@ function handleKeyPress(event) {
             case "soul-shard" :
                 updateStoneList();
                 break;
+            case "ethereal-shard" :
+                updateJewelsList();
+                break;
         }
     }
 }
@@ -31,6 +34,13 @@ function updateStoneList() {
     if (!soulShard) soulShard = 0;
     saveToStorage('soul-shard', soulShard);
     initStoneUpgrade()
+}
+
+function updateJewelsList() {
+    var etherealShard = $('#ethereal-shard').val();
+    if (!etherealShard) etherealShard = 0;
+    saveToStorage('ethereal-shard', etherealShard);
+    initJewelUpgrade()
 }
 
 function updateCharacterList() {

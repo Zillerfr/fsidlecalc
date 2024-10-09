@@ -70,6 +70,7 @@
 					case "tab_gearupgrade" :
 						initGearUpgrade();
 						initStoneUpgrade();
+						updateJewelsList();
 						break;
 					default:
 						break;

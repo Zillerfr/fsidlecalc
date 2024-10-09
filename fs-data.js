@@ -580,6 +580,7 @@ const dataInformation = {
         {
             'name': 'Ânkh',
             'code': 'ankh',
+            'effect': 'Dégâts',
             'tier': 1,
             'position': 1,
             'damage': 1,
@@ -589,6 +590,7 @@ const dataInformation = {
         {
             'name': 'Rune',
             'code': 'rune',
+            'effect': 'Santé',
             'tier': 1,
             'position': 2,
             'damage': 0,
@@ -598,6 +600,7 @@ const dataInformation = {
         {
             'name': 'Idole',
             'code': 'idol',
+            'effect': 'Résistance',
             'tier': 1,
             'position': 3,
             'damage': 0,
@@ -607,6 +610,7 @@ const dataInformation = {
         {
             'name': 'Talisman',
             'code': 'talisman',
+            'effect': 'Dégâts / Santé',
             'tier': 2,
             'position': 1,
             'damage': 1,
@@ -616,6 +620,7 @@ const dataInformation = {
         {
             'name': 'Collier',
             'code': 'necklace',
+            'effect': 'Dégâts / Résistance',
             'tier': 2,
             'position': 2,
             'damage': 1,
@@ -625,6 +630,7 @@ const dataInformation = {
         {
             'name': 'Babiole',
             'code': 'trinket',
+            'effect': 'Santé / Résistance',
             'tier': 2,
             'position': 3,
             'damage': 0,

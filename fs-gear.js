@@ -241,6 +241,118 @@ function initStoneUpgrade() {
     } );   
 }
 
+function calculateDataJewel() {
+
+    var dataWM = [];
+
+    $.each(dataInformation.characters, function (i, character) {
+        var maxEtherealShard = dataInput['ethereal-shard'];
+
+        // Character Gear
+        $.each(dataInformation['jewels'], function (i, item) {     
+            var itemLevelId  = character.code + '-jewels-' + item.code + '-level';
+            var itemRarityId = character.code + '-jewels-' + item.code + '-rarity';
+            var itemLevel  = dataInput[itemLevelId];
+            if (!itemLevel) itemLevel = 0;
+            var itemRarity = dataInput[itemRarityId];
+            if (!itemRarity) itemRarity = 0;
+            var itemMaxLevel = dataInformation.rarities[itemRarity].maxLevel;
+            var itemTier = 'tier' + item.tier;
+ 
+            if (itemRarity > 0) {
+                
+                var itemUpgradeEffect = dataInformation.jewelUpgradeEffect[itemLevel];
+                var itemRarityEffect = dataInformation.rarities[itemRarity].baseEffectJewel;
+    
+                var itemBoost = 0;
+                if (itemRarity > 0) {
+                    itemBoost = itemRarityEffect + itemUpgradeEffect;
+                }
+    
+                var itemNextUpgradeEffect = 0;
+                var itemBoostNextLevel = 0;
+                var itemUpgradeNextLevel = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    itemNextUpgradeEffect = dataInformation.jewelUpgradeEffect[itemLevel + 1];
+                    itemBoostNextLevel = itemRarityEffect + itemNextUpgradeEffect;
+                    itemUpgradeNextLevel = itemBoostNextLevel - itemBoost;
+                }
+    
+                var upgradeCost = 0;
+                var upgradeRating = 0;
+                if (itemLevel < itemMaxLevel && itemRarity > 0) {
+                    upgradeCost = dataInformation.jewelUpgradeCost[itemTier][itemLevel];
+                    upgradeRating = itemUpgradeNextLevel * 100 / upgradeCost;
+    
+                }
+    
+                if (upgradeCost <= maxEtherealShard && upgradeCost > 0) {
+                    dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
+                        item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
+                        numberFormat(upgradeRating), itemLevelId]);
+                }
+            }
+
+
+
+        });
+    });
+    return dataWM;
+}
+
+function initJewelUpgrade() {
+    var dataWM = calculateDataJewel();
+
+    if ( $.fn.DataTable.isDataTable('#wmTableJewel') ) {
+        $('#wmTableJewel').DataTable().destroy();
+    }
+
+    $('#wmTableJewel').DataTable( {
+        language: {
+            url: 'datatables_fr-FR.json',
+        },
+        columns: [
+            { 
+                title: 'Personnage',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="assets/' + data[0] + '.webp"></img><span>' + data[1]+ '</span></div>';
+                    }
+                    return data;
+                }
+            },
+            { 
+                title: 'Objet',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        return '<div class="data-item-data-line-values"><img class="item-svg char-pic color-' + data[1] + '" src="assets/' + data[0] + '.svg"></img><span>' + data[2]+ '</span></div>';
+                    }
+                    return data;
+                }
+            },            
+            { title: 'Niveau Objet' },
+            { title: 'Niveau Max Objet' },
+            { title: 'Effet' },
+            { title: 'Boost Niveau Actuel' },
+            { title: 'Boost Prochain Niveau' },
+            { title: 'Gain Prochain Niveau' },
+            { title: 'Coût Amélioration' },
+            { title: 'Valeur Amélioration' },
+            { 
+                title: 'Action',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        return '<button class="button small-button btn-plus" data-id="' + data + '">Upgrade</button>';
+                    }
+                    return data;
+                }
+            }
+        ],
+        pageLength: 10,
+        data: dataWM
+    } );   
+}
+
 $('body').on('click', '.btn-plus', function() {
     var id = $(this).data('id');
     incrementValue(id); // Passez l'ID ou une autre valeur en paramètre
@@ -254,12 +366,13 @@ function incrementValue(itemLevelId) {
 
     if (itemLevel < rarityMaxLevel) {
         saveToStorage(itemLevelId, itemLevel + 1);
+        $('#' + itemLevelId).val(itemLevel + 1);
         if (itemLevelId.includes('-gears-')) {
-            $('#' + itemLevelId).val(itemLevel + 1);
             initGearUpgrade();
         } else if (itemLevelId.includes('-soulstones-')) {
             initStoneUpgrade();
-            $('#' + itemLevelId).val(itemLevel + 1);
+        } else if (itemLevelId.includes('-jewels-')) {
+            initJewelUpgrade();
         }
     }
 }

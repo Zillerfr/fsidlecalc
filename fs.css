@@ -1055,6 +1055,11 @@ select {
     background-color: var(--input-background);
 }
 
+.filter-group {
+  gap: 20px;
+  align-items: center;
+  justify-content: end;
+}
 
 /* Rarity colors */
 .color-none {

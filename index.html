@@ -110,6 +110,13 @@
 			</div>
 			<div class="tab_item_wrap item-border tab_gearupgrade">
 				<div class="data-title title-alone item-border title-with-input">
+					<div class="view-table-switch">
+						<div>Afficher Tableau</div>
+						<label class="switch">
+							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableGearWrapper')">
+							<span class="slider round"></span>
+						</label>
+					</div>
 					<div class="bold-title">Equipements</div>
 					<div class="ascension-info">
 						<div class="data-item-data-line-item-element">
@@ -137,8 +144,17 @@
 						</div>
 					</div>
 				</div>
-				<table id="wmTableGear" class="display"></table>
+				<div id="viewTableGearWrapper">
+					<table id="wmTableGear" class="display"></table>
+				</div>
 				<div class="data-title title-alone item-border title-with-input">
+					<div class="view-table-switch">
+						<div>Afficher Tableau</div>
+						<label class="switch">
+							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableJewelWrapper')">
+							<span class="slider round"></span>
+						</label>
+					</div>
 					<div class="bold-title">Bijoux</div>
 					<div class="ascension-info">
 						<div class="data-item-data-line-item-element">
@@ -166,8 +182,17 @@
 						</div>
 					</div>					
 				</div>
-				<table id="wmTableJewel" class="display"></table>				
+				<div id="viewTableJewelWrapper">					
+					<table id="wmTableJewel" class="display"></table>				
+				</div>
 				<div class="data-title title-alone item-border title-with-input">
+					<div class="view-table-switch">
+						<div>Afficher Tableau</div>
+						<label class="switch">
+							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableStoneWrapper')">
+							<span class="slider round"></span>
+						</label>
+					</div>
 					<div class="bold-title">Pierres d'âmes</div>
 					<div class="ascension-info">
 						<div class="data-item-data-line-item-element">
@@ -199,7 +224,9 @@
 						</div>						
 					</div>
 				</div>
-				<table id="wmTableStone" class="display"></table>
+				<div id="viewTableStoneWrapper">
+					<table id="wmTableStone" class="display"></table>
+				</div>
 			</div>
 			<div class="tab_item_wrap item-border tab_settings">
 				<div class="main-data">

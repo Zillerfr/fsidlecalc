@@ -381,6 +381,7 @@ h1.main-title {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .bold-title {
@@ -1059,6 +1060,14 @@ select {
   gap: 20px;
   align-items: center;
   justify-content: end;
+}
+
+.view-table-switch {
+  display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: 15px;
+	gap: 10px;
 }
 
 /* Rarity colors */

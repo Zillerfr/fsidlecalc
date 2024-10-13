@@ -416,3 +416,7 @@ function searchStoneList(searchTerm) {
     $('input.dt-input[aria-controls="wmTableStone"]').val(searchTerm);
     table.search(searchTerm).draw();
 }
+
+function showHideTable(viewWrapper) {
+    $('#' + viewWrapper).toggle();
+}

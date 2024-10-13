@@ -20,7 +20,16 @@
 
 <body id="home">
 	<div id="spinner" class="spinner">
-		<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+		<div class="lds-roller">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
 	</div>
 	<div class="wrapper">
 		<div class="title-wrapper">
@@ -48,6 +57,7 @@
 				<li data-tabs="tab_wmpower">Equipage Machines de Guerre</li>
 				<li data-tabs="tab_gearupgrade">Améliorations d'équipements</li>
 				<li data-tabs="tab_settings">Gestion des données</li>
+				<li data-tabs="tab_documentation">Documentation</li>
 			</ul>
 		</div>
 		<div class="container">
@@ -58,8 +68,9 @@
 						<div class="data-item-data-line-item-element">
 							<div>Échelon maximum atteint</div>
 							<div class="input-with-control">
-								<div class="input-holder"><input id="max-reached-stage" onkeydown="handleKeyPress(event)"
-										class="controlled-input medium-input" type="number"></div>
+								<div class="input-holder"><input id="max-reached-stage"
+										onkeydown="handleKeyPress(event)" class="controlled-input medium-input"
+										type="number"></div>
 								<button class="button small-button" onclick="updateCharacterList()">Appliquer</button>
 							</div>
 						</div>
@@ -72,11 +83,13 @@
 				</div>
 				<div class="data-title title-alone title-with-input vertical-control">
 					<div class="bold-title">Mercenaires</div>
-					<div class="data-title title-alone item-border title-with-input title-flex" id="mercenary-selection"></div>
+					<div class="data-title title-alone item-border title-with-input title-flex"
+						id="mercenary-selection"></div>
 					<div class="bold-title">Dieux</div>
-					<div class="data-title title-alone item-border title-with-input title-flex" id="god-selection"></div>					
-				</div>				
-			</div>			
+					<div class="data-title title-alone item-border title-with-input title-flex" id="god-selection">
+					</div>
+				</div>
+			</div>
 			<div class="tab_item_wrap item-border tab_data active data" id="characters-box">
 				<div class="data-title title-alone item-border title-with-input">
 					<div class="bold-title">Liste des personnage(s)</div>
@@ -96,7 +109,8 @@
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableCrew')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableCrew')">
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -109,24 +123,28 @@
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableCrewPotential')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableCrewPotential')">
 							<span class="slider round"></span>
 						</label>
 					</div>
-					<div class="bold-title">Bonus potentiels pouvant être apportés par les personnage aux machines de guerre (en montant les bijoux au maximum)</div>
+					<div class="bold-title">Bonus potentiels pouvant être apportés par les personnage aux machines de
+						guerre (en montant les bijoux au maximum)</div>
 				</div>
 				<div id="viewTableCrewPotential">
-					<table id="wmTablePotential" class="display"></table>				
+					<table id="wmTablePotential" class="display"></table>
 				</div>
 				<div class="data-title title-alone item-border title-with-input">
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableCrewMix')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableCrewMix')">
 							<span class="slider round"></span>
 						</label>
 					</div>
-					<div class="bold-title">Bonus acquis + potentiels apportés par les personnage aux machines de guerre</div>
+					<div class="bold-title">Bonus acquis + potentiels apportés par les personnage aux machines de guerre
+					</div>
 				</div>
 				<div id="viewTableCrewMix">
 					<table id="wmTableMix" class="display"></table>
@@ -140,7 +158,8 @@
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableGearWrapper')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableGearWrapper')">
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -159,7 +178,8 @@
 						<div class="bold-title">Filtres rapides</div>
 						<div class="data-item-data-line-item-element">
 							<div>Dégâts Perso</div>
-							<button class="button small-button" onclick="searchGearList('dégâts perso')">Filtrer</button>
+							<button class="button small-button"
+								onclick="searchGearList('dégâts perso')">Filtrer</button>
 						</div>
 						<div class="data-item-data-line-item-element">
 							<div>Dégâts tous</div>
@@ -178,7 +198,8 @@
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableJewelWrapper')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableJewelWrapper')">
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -207,16 +228,17 @@
 							<div>Résistance</div>
 							<button class="button small-button" onclick="searchJewelList('résistance')">Filtrer</button>
 						</div>
-					</div>					
+					</div>
 				</div>
 				<div id="viewTableJewelWrapper">
-					<table id="wmTableJewel" class="display"></table>				
+					<table id="wmTableJewel" class="display"></table>
 				</div>
 				<div class="data-title title-alone item-border title-with-input">
 					<div class="view-table-switch">
 						<div>Afficher Tableau</div>
 						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked onchange="showHideTable('viewTableStoneWrapper')">
+							<input type="checkbox" class="fight-use-inner" checked
+								onchange="showHideTable('viewTableStoneWrapper')">
 							<span class="slider round"></span>
 						</label>
 					</div>
@@ -235,11 +257,13 @@
 						<div class="bold-title">Filtres rapides</div>
 						<div class="data-item-data-line-item-element">
 							<div>Dégâts Perso</div>
-							<button class="button small-button" onclick="searchStoneList('dégâts perso')">Filtrer</button>
+							<button class="button small-button"
+								onclick="searchStoneList('dégâts perso')">Filtrer</button>
 						</div>
 						<div class="data-item-data-line-item-element">
 							<div>Dégâts tous</div>
-							<button class="button small-button" onclick="searchStoneList('dégâts tous')">Filtrer</button>
+							<button class="button small-button"
+								onclick="searchStoneList('dégâts tous')">Filtrer</button>
 						</div>
 						<div class="data-item-data-line-item-element">
 							<div>Gains or</div>
@@ -247,8 +271,9 @@
 						</div>
 						<div class="data-item-data-line-item-element">
 							<div>Gains firestone</div>
-							<button class="button small-button" onclick="searchStoneList('gains firestone')">Filtrer</button>
-						</div>						
+							<button class="button small-button"
+								onclick="searchStoneList('gains firestone')">Filtrer</button>
+						</div>
 					</div>
 				</div>
 				<div id="viewTableStoneWrapper">
@@ -284,11 +309,88 @@
 					<div class="ascension-info full-flex">
 						<div id="exported-container" class="mordek-fight-switch full-flex">
 							<div>Informations à importer</div>
-							<textarea id="import-data" class="import-data full-size controlled-input" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+							<textarea id="import-data" class="import-data full-size controlled-input"
+								onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
 						</div>
 						<div class="mordek-fight-sim">
 							<button id="reset-data-button" class="button" onclick="doImport()">Importer</button>
 						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_item_wrap item-border tab_documentation">
+				<div class="main-data">
+					<div>
+						<h2>Description</h2>
+						<p>Outil d'aide à la décision pour FireStone Idle RPG.</p>
+						<h3>Onglet : Vos Informations</h3>
+						<p>Permet de saisir les équipements de vos personnages ainsi qu'indiquer les mercenaires / dieux
+							débloquer.
+							Plusieurs éléments de saisie :</p>
+						<ul>
+							<li>Échelon maximum atteint - permet de filtrer la liste des personnages en fonction des
+								personnages débloqués par le meilleur échelon atteint (appuyer sur le bouton "Appliquer"
+								pour mettre à jour)</li>
+							<li>Personnages débloqués - permet de cocher / décocher les mercenaires / dieux en fonction
+								de ce que vous avez débloqué</li>
+							<li>Liste des personnages</li>
+							<ul>
+								<li>Affiche l'ensemble des personnages avec une liste de sélection permettant de filtrer
+									soit sur un personnage précis, soit avoir uniquement les personnages débloqués, soit
+									l'intégralité des personnages du jeu.</li>
+								<li>Pour chaque personnage, la liste des équipements, bijoux et pierres d'âmes avec leur
+									rareté et leur niveau.</li>
+								<li>Cliquer sur une image permet de changer la rareté ("Aucun" correspond au fait de ne
+									pas avoir encore obtenu l'objet)</li>
+								<li>Cliquer sur les boutons "+" et "-" autour du niveau permet de modifier le niveau
+								</li>
+							</ul>
+						</ul>
+						<h3>Onglet : Equipage Machines de Guerre</h3>
+						<p>Permet de visualiser l'apport de chacun de vos personnages aux machines de guerre dans les
+							différentes statistique (dégâts, santé, résistance et cumul santé + résistance).</p>
+						<p>3 tableaux sont disponibles :</p>
+						<ul>
+							<li>Bonus acquis - permet de visualiser les bonus complet apportés par chaque personnage en
+								fonction de la rareté et du niveau actuel de ses bijoux</li>
+							<li>Bonus potentiels - permet de visualiser les bonus maximum pouvant être apporté par
+								chaque personnage en fonction de la rareté de ses bijoux, en considérant qu'ils sont
+								tous améliorés au niveau maximum</li>
+							<li>Bonus acquis + potentiels - permet de visualiser le contenu des 2 autres tableaux
+								cumulés</li>
+						</ul>
+						<p>Pour chaque tableau, il y a un bouton permettant d'afficher/masquer le tableau pour
+							sélectionner ce que l'on peut voir.</p>
+						<h3>Onglet : Améliorations d'équipements</h3>
+						<p>Permet de calculer quels sont les objets les plus "rentables" à améliorer</p>
+						<p>3 tableaux sont disponbibles, un tableau par type d'objets (équipements, bijoux et pierres
+							d'âmes), ils ont un fonctionnement similaire :</p>
+						<ul>
+							<li>Une case pour saisir la quantité de la ressource permettant d'améliorer l'objet (appuyer
+								sur le bouton "Appliquer" pour mettre à jour)</li>
+							<li>Une série de filtres rapides pour en un clic rechercher les statistiques à améliorer (si
+								vous cherchez à améliorer une statistique en particulier)</li>
+							<li>Dans le tableau vont s'afficher l'ensemble des objets améliorables avec un bouton
+								"Upgrade", si vous cliquez sur ce bouton, le niveau de l'objet dans l'outil va être
+								augmenté de 1 (pas besoin d'aller saisir à la main dans le 1er onglet) et le total de
+								ressource d'amélioration sera réduit du coût de l'upgrade</li>
+							<li>Une colonne "Valeur amélioration" permet de visualiser le rapport entre le gain de
+								statistique et le coût de l'amélioration</li>
+						</ul>
+						<p>Pour chaque tableau, il y a un bouton permettant d'afficher/masquer le tableau pour
+							sélectionner ce que l'on peut voir.</p>
+						<h3>Onglet : Gestion des données</h3>
+						<p>Les données du calculateur sont mémorisées dans le "local storage" de votre navigateur, si
+							vous changez de navigateur ou passez en navigation privée, elles ne seront pas accessibles.
+						</p>
+						<p>Cet onglet permet d'exporter ou importer les données si vous devez changer de navigateur.</p>
+						<p>Pour exporter, cliquer sur le bouton "Exporter", cela va afficher la sauvegarde dans une
+							case, pour plus de facilité, le bouton "Copier" permet de mettre le contenu dans le
+							presse-papier du système.</p>
+						<p>Pour importer, il faut d'abord coller la sauvegarde dans la case puis cliquer sur le bouton
+							"Importer"</p>
+						<h3>Onglet : Documentation</h3>
+						<p>Vous êtes ici ;)</p>
 					</div>
 				</div>
 			</div>

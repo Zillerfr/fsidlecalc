@@ -17,7 +17,7 @@ function calculateDataWM() {
         var charDamageBonus = 1 + (specList[character.spec].wmStatBonus.damage / 100);
         var charHealthBonus = 1 + (specList[character.spec].wmStatBonus.health / 100);
         var charArmorBonus  = 1 + (specList[character.spec].wmStatBonus.armor  / 100);     
-        var wmId = character.code + '-WM';   
+        var wmId = character.code + '-WM';
 
         $.each(dataInformation['jewels'], function (i, jewel) {     
             var jewelLevelId  = character.code + '-jewels-' + jewel.code + '-level';

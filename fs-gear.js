@@ -1,3 +1,5 @@
+var wmSelection = null;
+
 function calculateDataGear() {
 
     var dataWM = [];
@@ -260,6 +262,7 @@ function calculateDataJewel() {
             if (!itemRarity) itemRarity = 0;
             var itemMaxLevel = dataInformation.rarities[itemRarity].maxLevel;
             var itemTier = 'tier' + item.tier;
+            var wmId = character.code + '-WM';
  
             if (itemRarity > 0) {
                 
@@ -288,11 +291,14 @@ function calculateDataJewel() {
     
                 }
     
-                if (upgradeCost <= maxEtherealShard && upgradeCost > 0) {
-                    dataWM.push([[character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
-                        item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
-                        numberFormat(upgradeRating), [itemLevelId, itemTier]]);
+                if (wmSelection == null || wmSelection == dataInput[wmId]) {                    
+                    if (upgradeCost <= maxEtherealShard && upgradeCost > 0) {
+                        dataWM.push([wmId, [character.code, character.name], [item.code, dataInformation.rarities[itemRarity].code, item.name], itemLevel, itemMaxLevel,
+                            item.effect, numberFormat(itemBoost), numberFormat(itemBoostNextLevel), numberFormat(itemUpgradeNextLevel), numberFormat(upgradeCost), 
+                            numberFormat(upgradeRating), [itemLevelId, itemTier]]);
+                    }
                 }
+
             }
 
 
@@ -300,6 +306,23 @@ function calculateDataJewel() {
         });
     });
     return dataWM;
+}
+
+function createWMRadio(value, wmName, vmImageAsset) {
+    var inputImage = $('<div></div>').addClass('data-item-data-line-item-element');
+    var imgWM = $('<img></img>').addClass('radio-image image-wm');
+    imgWM.attr('src', 'assets/' + vmImageAsset);
+    imgWM.attr('alt', wmName);
+    imgWM.attr('data-value', value);
+    inputImage.append(imgWM);
+    var divWMName = $('<div></div>').text(wmName);
+    inputImage.append(divWMName);
+    return inputImage;
+}
+
+function filterByWM(value) {
+    wmSelection = value;
+    initJewelUpgrade()
 }
 
 function initJewelUpgrade() {
@@ -314,6 +337,25 @@ function initJewelUpgrade() {
             url: 'datatables_fr-FR.json',
         },
         columns: [
+            { 
+                title: 'Machine',
+                render: function (data, type) {                    
+                    var imageUrl = "assets/tank.svg";
+                    var machineName = "Aucun";
+                    if (dataInput[data] > 0) {
+                        imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                        machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                    }
+                    if (type === 'display') {
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
+                    }
+                    if (type === 'sort' || type === 'type') {
+                        return machineName;
+                    }
+                    return data;
+                },
+                orderDataType: 'dom-text'
+            },
             { 
                 title: 'Personnage',
                 render: function (data, type) {

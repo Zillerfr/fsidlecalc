@@ -36,6 +36,17 @@
 			characterSelection($(this));
 		});
 
+		$('.radio-image').on('click', function(){
+			if ($(this).hasClass('selected')) {
+				$(this).removeClass('selected');
+				filterByWM(null);
+			} else {
+				$('.radio-image').removeClass('selected');
+				$(this).addClass('selected');
+				filterByWM($(this).data('value'));
+			}
+		});
+
 		/**
 		 * ==================================
 		 * Tabs management

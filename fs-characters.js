@@ -293,6 +293,12 @@ function addCharacterSelect(characterCode, characterName, characterType) {
 function initializeCharactersSheet() {
     $charactersBox = $("#characters-box");
     $charactersSelect = $("#character-selection");
+    $wmList = $("#wm-list");
+
+    $wmList.append(createWMRadio(0, "Aucun", "tank.svg"));
+    $.each(dataInformation.warmachines, function (i, warmachine) {
+        $wmList.append(createWMRadio(i+1, warmachine.name, warmachine.code + ".webp"));
+    });
 
     $.each(dataInformation.characters, function (i, character) {
 

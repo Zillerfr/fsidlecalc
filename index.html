@@ -194,40 +194,44 @@
 				<div id="viewTableGearWrapper">
 					<table id="wmTableGear" class="display"></table>
 				</div>
-				<div class="data-title title-alone item-border title-with-input">
-					<div class="view-table-switch">
-						<div>Afficher Tableau</div>
-						<label class="switch">
-							<input type="checkbox" class="fight-use-inner" checked
-								onchange="showHideTable('viewTableJewelWrapper')">
-							<span class="slider round"></span>
-						</label>
-					</div>
-					<div class="bold-title">Bijoux</div>
-					<div class="ascension-info">
-						<div class="data-item-data-line-item-element">
-							<div>Eclats éthérés</div>
-							<div class="input-with-control">
-								<div class="input-holder"><input id="ethereal-shard" onkeydown="handleKeyPress(event)"
-										class="controlled-input medium-input" type="number"></div>
-								<button class="button small-button" onclick="updateJewelsList()">Appliquer</button>
+				<div class="title-double">
+					<div class="data-title title-alone item-border title-with-input">
+						<div class="view-table-switch">
+							<div>Afficher Tableau</div>
+							<label class="switch">
+								<input type="checkbox" class="fight-use-inner" checked
+									onchange="showHideTable('viewTableJewelWrapper')">
+								<span class="slider round"></span>
+							</label>
+						</div>
+						<div class="bold-title">Bijoux</div>
+						<div class="ascension-info">
+							<div class="data-item-data-line-item-element">
+								<div>Eclats éthérés</div>
+								<div class="input-with-control">
+									<div class="input-holder"><input id="ethereal-shard" onkeydown="handleKeyPress(event)"
+											class="controlled-input medium-input" type="number"></div>
+									<button class="button small-button" onclick="updateJewelsList()">Appliquer</button>
+								</div>
+							</div>
+						</div>
+						<div class="title-wrapper filter-group">
+							<div class="bold-title">Filtres rapides</div>
+							<div class="data-item-data-line-item-element">
+								<div>Dégâts</div>
+								<button class="button small-button" onclick="searchJewelList('dégâts')">Filtrer</button>
+							</div>
+							<div class="data-item-data-line-item-element">
+								<div>Santé</div>
+								<button class="button small-button" onclick="searchJewelList('santé')">Filtrer</button>
+							</div>
+							<div class="data-item-data-line-item-element">
+								<div>Résistance</div>
+								<button class="button small-button" onclick="searchJewelList('résistance')">Filtrer</button>
 							</div>
 						</div>
 					</div>
-					<div class="title-wrapper filter-group">
-						<div class="bold-title">Filtres rapides</div>
-						<div class="data-item-data-line-item-element">
-							<div>Dégâts</div>
-							<button class="button small-button" onclick="searchJewelList('dégâts')">Filtrer</button>
-						</div>
-						<div class="data-item-data-line-item-element">
-							<div>Santé</div>
-							<button class="button small-button" onclick="searchJewelList('santé')">Filtrer</button>
-						</div>
-						<div class="data-item-data-line-item-element">
-							<div>Résistance</div>
-							<button class="button small-button" onclick="searchJewelList('résistance')">Filtrer</button>
-						</div>
+					<div id="wm-list" class="data-title title-alone item-border title-with-input">
 					</div>
 				</div>
 				<div id="viewTableJewelWrapper">

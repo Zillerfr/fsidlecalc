@@ -213,6 +213,10 @@ body {
 	text-align: center;
 }
 
+.data-title > .view-table-switch {
+  white-space: unset;
+}
+
 .main-data {
 	display: flex;
 	justify-content: space-between;
@@ -985,9 +989,29 @@ select {
     align-items: stretch;
 }
 
+.data-item-data-line-values > span {
+  text-align: center;
+}
+
 .data-item-container {
   display: flex;
   flex-direction: row;
+}
+
+.title-double {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.radio-image {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.radio-image.selected {
+  outline: 2px solid var(--input-checkbox-color);
+  outline-offset: 2px;
 }
 
 .vertical-control {

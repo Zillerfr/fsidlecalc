@@ -103,18 +103,22 @@ function initWMPower() {
             { title: 'Spécialité' },
             { 
                 title: 'Machine',
-                render: function (data, type) {
+                render: function (data, type) {                    
+                    var imageUrl = "assets/tank.svg";
+                    var machineName = "Aucun";
+                    if (dataInput[data] > 0) {
+                        imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                        machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                    }
                     if (type === 'display') {
-                        var imageUrl = "assets/tank.svg";
-                        var machineName = "Aucun";
-                        if (dataInput[data] > 0) {
-                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
-                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
-                        }                        
                         return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
                     }
+                    if (type === 'sort' || type === 'type') {
+                        return machineName;
+                    }
                     return data;
-                }
+                },
+                orderDataType: 'dom-text'
             },
             { title: 'Dégâts' },
             { title: 'Santé' },
@@ -143,18 +147,22 @@ function initWMPower() {
             { title: 'Spécialité' },
             { 
                 title: 'Machine',
-                render: function (data, type) {
+                render: function (data, type) {                    
+                    var imageUrl = "assets/tank.svg";
+                    var machineName = "Aucun";
+                    if (dataInput[data] > 0) {
+                        imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                        machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                    }
                     if (type === 'display') {
-                        var imageUrl = "assets/tank.svg";
-                        var machineName = "Aucun";
-                        if (dataInput[data] > 0) {
-                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
-                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
-                        }
                         return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
                     }
+                    if (type === 'sort' || type === 'type') {
+                        return machineName;
+                    }
                     return data;
-                }
+                },
+                orderDataType: 'dom-text'
             },            
             { title: 'Dégâts' },
             { title: 'Santé' },
@@ -183,18 +191,22 @@ function initWMPower() {
             { title: 'Spéc' },
             { 
                 title: 'Machine',
-                render: function (data, type) {
+                render: function (data, type) {                    
+                    var imageUrl = "assets/tank.svg";
+                    var machineName = "Aucun";
+                    if (dataInput[data] > 0) {
+                        imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                        machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                    }
                     if (type === 'display') {
-                        var imageUrl = "assets/tank.svg";
-                        var machineName = "Aucun";
-                        if (dataInput[data] > 0) {
-                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
-                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
-                        }
                         return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
                     }
+                    if (type === 'sort' || type === 'type') {
+                        return machineName;
+                    }
                     return data;
-                }
+                },
+                orderDataType: 'dom-text'
             },            
             { title: 'Dégâts' },
             { title: 'Dégâts Pot.' },

@@ -40,6 +40,8 @@ Permet de calculer quels sont les objets les plus "rentables" à améliorer
 
 - Une case pour saisir la quantité de la ressource permettant d'améliorer l'objet (appuyer sur le bouton "Appliquer" pour mettre à jour)
 - Une série de filtres rapides pour en un clic rechercher les statistiques à améliorer (si vous cherchez à améliorer une statistique en particulier)
+  - Pour les bijoux, un filtre supplémentaire par machine de guerre (sélectionner une machine pour ne voir que les personnages étant dans l'équipage de cette machine, ne sélectionner aucune machine pour voir l'ensemble des personnages)
+  - un clic sélectionne une machine, un clic sur la machine déjà sélectionnée désélectionne la machine
 - Dans le tableau vont s'afficher l'ensemble des objets améliorables avec un bouton "Upgrade", si vous cliquez sur ce bouton, le niveau de l'objet dans l'outil va être augmenté de 1 (pas besoin d'aller saisir à la main dans le 1er onglet) et le total de ressource d'amélioration sera réduit du coût de l'upgrade
 - Une colonne "Valeur amélioration" permet de visualiser le rapport entre le gain de statistique et le coût de l'amélioration
 Pour chaque tableau, il y a un bouton permettant d'afficher/masquer le tableau pour sélectionner ce que l'on peut voir.

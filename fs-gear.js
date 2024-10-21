@@ -459,6 +459,9 @@ function searchStoneList(searchTerm) {
     table.search(searchTerm).draw();
 }
 
-function showHideTable(viewWrapper) {
+function showHideTable(viewWrapper, secondViewWrapper = null) {
     $('#' + viewWrapper).toggle();
+    if (secondViewWrapper) {
+        $('#' + secondViewWrapper).toggle();
+    }
 }

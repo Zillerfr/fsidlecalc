@@ -36,7 +36,7 @@ Pour chaque tableau, il y a un bouton permettant d'afficher/masquer le tableau p
 
 Permet de calculer quels sont les objets les plus "rentables" à améliorer
 
-3 tableaux sont disponbibles, un tableau par type d'objets (équipements, bijoux et pierres d'âmes), ils ont un fonctionnement similaire :
+3 tableaux sont disponibles, un tableau par type d'objets (équipements, bijoux et pierres d'âmes), ils ont un fonctionnement similaire :
 
 - Une case pour saisir la quantité de la ressource permettant d'améliorer l'objet (appuyer sur le bouton "Appliquer" pour mettre à jour)
 - Une série de filtres rapides pour en un clic rechercher les statistiques à améliorer (si vous cherchez à améliorer une statistique en particulier)

@@ -59,6 +59,60 @@ const dataInformation = {
             }
         }
     ],
+    'warmachines' : [
+        {
+            'name': 'Goliath',
+            'code': 'goliath'
+        },
+        {
+            'name': 'Forteresse',
+            'code': 'fortress'
+        },
+        {
+            'name': 'Briseterre',
+            'code': 'earthshatterer'
+        },
+        {
+            'name': 'Sentinelle',
+            'code': 'sentinel'
+        },
+        {
+            'name': 'Chasseur',
+            'code': 'hunter'
+        },
+        {
+            'name': 'Conservateur',
+            'code': 'curator'
+        },
+        {
+            'name': 'Coup de tonnerre',
+            'code': 'thunderclap'
+        },
+        {
+            'name': 'Jugement',
+            'code': 'judgement'
+        },
+        {
+            'name': 'Moissonneuse',
+            'code': 'harvester'
+        },
+        {
+            'name': 'Talos',
+            'code': 'talos'
+        },
+        {
+            'name': 'Feu d\'artfice',
+            'code': 'firecracker'
+        },
+        {
+            'name': 'Poing céleste',
+            'code': 'cloudfist'
+        },
+        {
+            'name': 'Egide',
+            'code': 'aegis'
+        }
+    ],
     'characters' : [
         {
             'name': 'Talia',

@@ -403,10 +403,6 @@ h1.main-title {
 	flex-direction: column;
 }
 
-.title-flex > div {
-	align-self: stretch;
-}
-
 .width-total {
 	width: 100%
 }

@@ -16,11 +16,12 @@ function calculateDataWM() {
         var armorMaxBoost  = 0;
         var charDamageBonus = 1 + (specList[character.spec].wmStatBonus.damage / 100);
         var charHealthBonus = 1 + (specList[character.spec].wmStatBonus.health / 100);
-        var charArmorBonus  = 1 + (specList[character.spec].wmStatBonus.armor  / 100);        
+        var charArmorBonus  = 1 + (specList[character.spec].wmStatBonus.armor  / 100);     
+        var wmId = character.code + '-WM';   
 
         $.each(dataInformation['jewels'], function (i, jewel) {     
             var jewelLevelId  = character.code + '-jewels-' + jewel.code + '-level';
-            var jewelRarityId = character.code + '-jewels-' + jewel.code + '-rarity';
+            var jewelRarityId = character.code + '-jewels-' + jewel.code + '-rarity';            
             var jewelLevel  = dataInput[jewelLevelId];
             if (!jewelLevel) jewelLevel = 0;
             var jewelRarity = dataInput[jewelRarityId];
@@ -55,13 +56,13 @@ function calculateDataWM() {
         armorMaxBoost  = armorMaxBoost  * charArmorBonus;
 
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0) {
-            dataWM.dataVMCurrent.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageBoost), numberFormat(healthBoost), numberFormat(armorBoost), numberFormat(healthBoost + armorBoost)]);
+            dataWM.dataVMCurrent.push([[character.code, character.name], specList[character.spec].name, wmId, numberFormat(damageBoost), numberFormat(healthBoost), numberFormat(armorBoost), numberFormat(healthBoost + armorBoost)]);
         }        
         if (damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMax.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageMaxBoost), numberFormat(healthMaxBoost), numberFormat(armorMaxBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMax.push([[character.code, character.name], specList[character.spec].name, wmId, numberFormat(damageMaxBoost), numberFormat(healthMaxBoost), numberFormat(armorMaxBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
         if (damageBoost > 0 || healthBoost > 0 || armorBoost > 0 || damageMaxBoost > 0 || healthMaxBoost > 0 || armorMaxBoost > 0) {
-            dataWM.dataVMMix.push([[character.code, character.name], specList[character.spec].name, numberFormat(damageBoost), numberFormat(damageMaxBoost), numberFormat(healthBoost), numberFormat(healthMaxBoost), numberFormat(armorBoost), numberFormat(armorMaxBoost), numberFormat(healthBoost + armorBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
+            dataWM.dataVMMix.push([[character.code, character.name], specList[character.spec].name, wmId, numberFormat(damageBoost), numberFormat(damageMaxBoost), numberFormat(healthBoost), numberFormat(healthMaxBoost), numberFormat(armorBoost), numberFormat(armorMaxBoost), numberFormat(healthBoost + armorBoost), numberFormat(healthMaxBoost + armorMaxBoost)]);
         }
     });
 
@@ -100,6 +101,21 @@ function initWMPower() {
                 }
             },
             { title: 'Spécialité' },
+            { 
+                title: 'Machine',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        var imageUrl = "assets/tank.svg";
+                        var machineName = "Aucun";
+                        if (dataInput[data] > 0) {
+                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                        }                        
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
+                    }
+                    return data;
+                }
+            },
             { title: 'Dégâts' },
             { title: 'Santé' },
             { title: 'Résistance' },
@@ -125,6 +141,21 @@ function initWMPower() {
                 }
             },
             { title: 'Spécialité' },
+            { 
+                title: 'Machine',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        var imageUrl = "assets/tank.svg";
+                        var machineName = "Aucun";
+                        if (dataInput[data] > 0) {
+                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                        }
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
+                    }
+                    return data;
+                }
+            },            
             { title: 'Dégâts' },
             { title: 'Santé' },
             { title: 'Résistance' },
@@ -150,6 +181,21 @@ function initWMPower() {
                 }
             },
             { title: 'Spéc' },
+            { 
+                title: 'Machine',
+                render: function (data, type) {
+                    if (type === 'display') {
+                        var imageUrl = "assets/tank.svg";
+                        var machineName = "Aucun";
+                        if (dataInput[data] > 0) {
+                            imageUrl = "assets/" + dataInformation.warmachines[dataInput[data]-1].code + ".webp";
+                            machineName = dataInformation.warmachines[dataInput[data]-1].name;
+                        }
+                        return '<div class="data-item-data-line-values"><img class="char-pic" src="' + imageUrl + '"></img><span>' + machineName + '</span></div>';
+                    }
+                    return data;
+                }
+            },            
             { title: 'Dégâts' },
             { title: 'Dégâts Pot.' },
             { title: 'Santé' },

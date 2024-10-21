@@ -180,9 +180,11 @@ function loadFromStorage() {
 						var container = $(this).closest('.custom-select-container');
 						var image = $(this).closest('.custom-select-container').find('.select-image');
 						var inputContainer = container.siblings('.input-with-control')
-						changeRarityClass(image, dataInput[this.id]);
-						changeRarityClass(container, dataInput[this.id]);
-						changeRarityBorderClass(inputContainer, dataInput[this.id]);
+						if (container.hasClass('item-selector')) {
+							changeRarityClass(image, dataInput[this.id]);
+							changeRarityClass(container, dataInput[this.id]);
+							changeRarityBorderClass(inputContainer, dataInput[this.id]);
+						}
 					}
 				}
 			}

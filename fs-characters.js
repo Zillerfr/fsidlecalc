@@ -7,6 +7,14 @@ function changeRarityClass(div, rarityValue) {
     div.addClass("color-" + dataInformation.rarities[rarityValue].code);
 }
 
+function changeWMImage(div, wmNumber) {
+    if (wmNumber == 0) {
+        div.attr("src", "assets/tank.svg");
+    } else {
+        div.attr("src", "assets/" + dataInformation.warmachines[wmNumber-1].code + ".webp");
+    }
+}
+
 function changeRarityBorderClass(div, rarityValue) {
     $.each(dataInformation.rarities, function (i, rarity) {
         div.removeClass("border-color-" + rarity.code);    
@@ -26,6 +34,19 @@ function selectRarityAddOptions(select) {
     });
 }
 
+function selectWMAddOptions(select) {
+    select.append($('<option>', { 
+        value: 0,
+        text : "Aucune" 
+    })); 
+    $.each(dataInformation.warmachines, function (i, warmachine) {
+        select.append($('<option>', { 
+            value: i + 1,
+            text : warmachine.name 
+        }));
+    });
+}
+
 function addItems(parentDiv, itemType, characterName, currentTier) {
 
     $.each(dataInformation[itemType], function (i, item) {     
@@ -33,6 +54,64 @@ function addItems(parentDiv, itemType, characterName, currentTier) {
             parentDiv.append(addItemLine(itemType, characterName, item.code, currentTier)); 
         }       
     });
+}
+
+function addWMList(characterCode) {
+    var selectId = characterCode + "-WM"
+    var imageUrl = "assets/tank.svg";
+    if (dataInput[selectId] && dataInput[selectId] > 0) {
+        imageUrl = "assets/" + dataInformation.warmachines[dataInput[selectId]-1].code + ".webp"
+    }
+
+    // Select Rarity Item Container
+    var divItemLine = $('<div></div>').addClass('custom-select-container wm-selector');
+    // Item picto
+    var divItemLinePicto = $('<img></img>').addClass('item-svg select-image');
+    divItemLinePicto.attr("src", imageUrl);
+    divItemLine.append(divItemLinePicto);
+    
+    var divItemCustomOptions = $('<div></div>').addClass('custom-options data-item-data-grid data-item-data-grid-gears');
+    var divDataGearTierLine1 = $('<div></div>').addClass('data-item-tier tier1');
+    var divDataGearTierLine2 = $('<div></div>').addClass('data-item-tier tier2');
+    var divDataGearTierLine3 = $('<div></div>').addClass('data-item-tier tier3');
+    var divOptionNone = $('<div></div>').addClass('option');
+    divOptionNone.attr("data-value", "0");
+    var divItemLinePictoOption0 = $('<img></img>').addClass('item-svg');
+    divItemLinePictoOption0.attr("src", "assets/tank.svg");
+    divOptionNone.append(divItemLinePictoOption0).append(dataInformation.rarities[0].name);
+    divDataGearTierLine1.append(divOptionNone);
+
+    $.each(dataInformation.warmachines, function (i, warmachine) {
+
+        var divOptionCommon = $('<div></div>').addClass('option');
+        divOptionCommon.attr("data-value", i + 1);
+        var divItemLinePictoOption = $('<img></img>').addClass('item-svg');
+        divItemLinePictoOption.attr("src", "assets/" + warmachine.code + ".webp");
+        divOptionCommon.append(divItemLinePictoOption).append(warmachine.name);
+        
+        if (i < 3) {
+            divDataGearTierLine1.append(divOptionCommon);
+        } else  if (i < 8) {
+            divDataGearTierLine2.append(divOptionCommon);
+        } else {
+            divDataGearTierLine3.append(divOptionCommon);
+        }
+
+    });
+    
+    divItemCustomOptions.append(divDataGearTierLine1);
+    divItemCustomOptions.append(divDataGearTierLine2);
+    divItemCustomOptions.append(divDataGearTierLine3);
+
+    divItemLine.append(divItemCustomOptions);
+
+    // Custom Select
+    var selectWM = $('<select id="' + selectId + '"></select>').addClass('custom-select');
+    selectWM.attr("style", "display: none;");
+    selectWMAddOptions(selectWM);
+    divItemLine.append(selectWM);
+
+    return divItemLine;
 }
 
 function addItemLine(itemType, characterName, itemName, currentTier) {
@@ -52,7 +131,7 @@ function addItemLine(itemType, characterName, itemName, currentTier) {
     var divItemGlobalContainer = $('<div></div>').addClass('data-item-gears-tier' + currentTier + '-' + itemName + ' data-item-container');
 
     // Select Rarity Item Container
-    var divItemLine = $('<div></div>').addClass('custom-select-container color-' + rarityCode);
+    var divItemLine = $('<div></div>').addClass('custom-select-container item-selector color-' + rarityCode);
 
     // Item picto
     var divItemLinePicto = $('<img></img>').addClass('item-svg select-image color-' + rarityCode);
@@ -229,6 +308,10 @@ function initializeCharactersSheet() {
         divLineTitle.append(divImgLine);
         var divCharName = $('<div></div>').addClass('character-name').text(character.name);
         divLineTitle.append(divCharName);
+        var divCharWM = $('<div></div>')
+        divCharWM.append(addWMList(character.code));
+        divLineTitle.append(divCharWM);
+
         //$charactersBox.append(divLineTitle);
         // Character Data Box
         var divLineBox = $('<div id="' + characterGearsId + '"></div>').addClass('data-category-title item-border character-gear');

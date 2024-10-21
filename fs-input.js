@@ -85,13 +85,19 @@ function customOptionClick(option) {
     var image = option.closest('.custom-select-container').find('.select-image');
     var inputContainer = container.siblings('.input-with-control');
     var inputField = inputContainer.find('.input-gear-level');
-    forceMaxValue(inputField, value);
-    select.val(value);
+
     rarityChange(select.attr("id"), value);
-    changeRarityClass(image, value);
-    changeRarityClass(container, value);
-    changeRarityBorderClass(inputContainer, value);
+    select.val(value);
+    if (container.hasClass('item-selector')) {
+        forceMaxValue(inputField, value);
+        changeRarityClass(image, value);
+        changeRarityClass(container, value);
+        changeRarityBorderClass(inputContainer, value);
+    } else if (container.hasClass('wm-selector')) {
+        changeWMImage(image, value);
+    }
     customOptions.removeClass('show');
+
 }
 
 function selectCharacter(select) {

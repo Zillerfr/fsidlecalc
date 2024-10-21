@@ -976,6 +976,10 @@ select {
     height: 65px;
 }
 
+.image-wm {
+  width: unset;
+}
+
 .data-items-grid {
     align-items: stretch;
 }

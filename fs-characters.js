@@ -66,7 +66,7 @@ function addWMList(characterCode) {
     // Select Rarity Item Container
     var divItemLine = $('<div></div>').addClass('custom-select-container wm-selector');
     // Item picto
-    var divItemLinePicto = $('<img></img>').addClass('item-svg select-image');
+    var divItemLinePicto = $('<img></img>').addClass('item-svg select-image image-wm');
     divItemLinePicto.attr("src", imageUrl);
     divItemLine.append(divItemLinePicto);
     

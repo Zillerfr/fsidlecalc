@@ -76,7 +76,7 @@ function addWMList(characterCode) {
     var divDataGearTierLine3 = $('<div></div>').addClass('data-item-tier tier3');
     var divOptionNone = $('<div></div>').addClass('option');
     divOptionNone.attr("data-value", "0");
-    var divItemLinePictoOption0 = $('<img></img>').addClass('item-svg');
+    var divItemLinePictoOption0 = $('<img></img>').addClass('item-svg image-wm');
     divItemLinePictoOption0.attr("src", "assets/tank.svg");
     divOptionNone.append(divItemLinePictoOption0).append(dataInformation.rarities[0].name);
     divDataGearTierLine1.append(divOptionNone);
@@ -85,7 +85,7 @@ function addWMList(characterCode) {
 
         var divOptionCommon = $('<div></div>').addClass('option');
         divOptionCommon.attr("data-value", i + 1);
-        var divItemLinePictoOption = $('<img></img>').addClass('item-svg');
+        var divItemLinePictoOption = $('<img></img>').addClass('item-svg image-wm');
         divItemLinePictoOption.attr("src", "assets/" + warmachine.code + ".webp");
         divOptionCommon.append(divItemLinePictoOption).append(warmachine.name);
         

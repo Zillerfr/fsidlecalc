@@ -90,6 +90,8 @@ function generateMinValues() {
 			var selectId = 'character-select-' + charName;
 			minValues[selectId] = false;
 		}
+		var wmId = charName + '-WM';
+		minValues[wmId] = 0;
 
 	 });
 	 minValues["max-reached-stage"] = 0;

@@ -376,6 +376,14 @@ const dataInformation = {
             'god': true,
             'spec': 2,
             'unlockStage': 0
+        },
+        {
+            'name': 'Yamanoth',
+            'code': 'yamanoth',
+            'merc': false,
+            'god': true,
+            'spec': 1,
+            'unlockStage': 0
         }
     ],
     'rarities' : [

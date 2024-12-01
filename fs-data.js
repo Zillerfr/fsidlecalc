@@ -314,6 +314,13 @@ const dataInformation = {
             'spec': 1
         },
         {
+            'name': 'Yavo',
+            'code': 'yavo',
+            'merc': true,
+            'god': false,
+            'spec': 2
+        },
+        {
             'name': 'Cirilo',
             'code': 'cirilo',
             'merc': true,
@@ -328,25 +335,18 @@ const dataInformation = {
             'spec': 0
         },
         {
-            'name': 'Zelea',
-            'code': 'zelea',
-            'merc': true,
-            'god': false,
-            'spec': 0
-        },
-        {
-            'name': 'Yavo',
-            'code': 'yavo',
-            'merc': true,
-            'god': false,
-            'spec': 2
-        },
-        {
             'name': 'Anzo',
             'code': 'anzo',
             'merc': true,
             'god': false,
             'spec': 1
+        },
+        {
+            'name': 'Zelea',
+            'code': 'zelea',
+            'merc': true,
+            'god': false,
+            'spec': 0
         },
         {
             'name': 'Zoruk',
@@ -383,6 +383,14 @@ const dataInformation = {
             'merc': false,
             'god': true,
             'spec': 1,
+            'unlockStage': 0
+        },
+        {
+            'name': 'Kramatak',
+            'code': 'kramatak',
+            'merc': false,
+            'god': true,
+            'spec': 0,
             'unlockStage': 0
         }
     ],
